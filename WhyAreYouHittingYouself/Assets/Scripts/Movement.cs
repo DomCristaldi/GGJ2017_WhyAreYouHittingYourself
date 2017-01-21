@@ -20,8 +20,8 @@ public class Movement : MonoBehaviour {
         transform.position = new Vector3
         (
             transform.position.x+(speed*Time.deltaTime*trueMoveDirection.x),
-            transform.position.y+(speed*Time.deltaTime*trueMoveDirection.y),
-            0.0f
+            0.0f,
+            transform.position.z+(speed*Time.deltaTime*trueMoveDirection.z)
         );
 
         trueMoveDirection = desireMoveDirection;

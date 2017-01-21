@@ -27,7 +27,7 @@ public class InputController : MonoBehaviour {
         directionVertical = Input.GetAxisRaw("Vertical");
 
         movComp.desireMoveDirection = new Vector3(directionHorizontal,
-                                                  directionVertical,
-                                                  0.0f);
+                                                  0.0f,
+                                                  directionVertical);
     }
 }
