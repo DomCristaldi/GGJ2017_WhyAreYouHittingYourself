@@ -12,11 +12,11 @@ public class Bullet : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	}
-    void OnTriggerEnter(Collider Cube)
+    void OnTriggerEnter(Collider other)
     {
-        if (Cube.tag == "Player")
+        if (other.tag == "Player")
         {
-            Destroy(Cube.gameObject);
+            Destroy(other.gameObject);
             Destroy(gameObject);
         }
         else
