@@ -2,20 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stats : MonoBehaviour {
+public class GameManager : MonoBehaviour {
 
-	public float health;
-
-	public float maxHealth = 12.0f;
-
+	
 
 	// Use this for initialization
 	void Start () {
-
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		
+	}
+
+
+	private void EndGame_PlayerWins()
+	{
 
 	}
+
+	private void EndGame_PlayerLoses()
+	{
+
+	}
+
 }
