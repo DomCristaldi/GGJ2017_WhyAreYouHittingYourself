@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement : MonoBehaviour {
+public class movementasdf : MonoBehaviour {
     public float speed;
     public Vector3 trueMoveDirection;
     public Vector3 desireMoveDirection;
