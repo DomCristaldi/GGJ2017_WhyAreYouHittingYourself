@@ -50,4 +50,19 @@ public class Stats : MonoBehaviour {
 		}
 	}
 
+	private void ChangeBrainPower(int delta)
+	{
+		brainPower = Mathf.Clamp(brainPower + delta, 0, maxPower);
+
+	}
+
+	public void ConsumeBrainPower(int comsumedPower)
+	{
+		ChangeBrainPower(-comsumedPower);
+	}
+
+	public void ReplenishBrainPower(int replenishedPower)
+	{
+		ChangeBrainPower(replenishedPower);
+	}
 }

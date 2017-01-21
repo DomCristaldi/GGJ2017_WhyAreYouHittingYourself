@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(TeamMember))]
 public class AIBrain : MonoBehaviour {
 
 	private NavMeshAgent navAgentComp;
@@ -30,8 +31,4 @@ public class AIBrain : MonoBehaviour {
 		}
 	}
 
-	void OnMouseOver()
-	{
-
-	}
 }

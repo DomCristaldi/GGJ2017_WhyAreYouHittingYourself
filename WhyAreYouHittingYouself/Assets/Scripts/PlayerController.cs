@@ -55,11 +55,13 @@ public class PlayerController : ActorController {
 			if (Input.GetKeyDown(PossessTargetKey)
 			 && mindControlComp.enslaveTarget.currentTeam != teamMemberComp.currentTeam)
 			{
+				//SUCCESS
 				if (statsComp.brainPower - mindControlComp.enslaveTarget.statsComp.brainTax > 0)
 				{
-					mindControlComp.EnslaveTargetMindControl(mindControlComp.enslaveTarget);
-					Debug.LogFormat("Success Mind Control of {0}", mindControlComp.enslaveTarget);
+					mindControlComp.EnslaveTargetMindControl(this.statsComp,
+															 mindControlComp.enslaveTarget);
 				}
+				//FAIL
 				else
 				{
 					FailedtoMindControlEvent.Invoke();
@@ -71,7 +73,8 @@ public class PlayerController : ActorController {
 			 && mindControlComp.enslaveTarget.currentTeam == teamMemberComp.currentTeam //it's on our team
 			 && mindControlComp.enslaveTarget.isCurrentlyEnslaved)						//and we're currently enslaving it
 			{
-				mindControlComp.ReleaseTargetMindControl(mindControlComp.enslaveTarget);//then we can release it
+				mindControlComp.ReleaseTargetMindControl(this.statsComp,
+														 mindControlComp.enslaveTarget);//then we can release it
 			}
 		}
 	}

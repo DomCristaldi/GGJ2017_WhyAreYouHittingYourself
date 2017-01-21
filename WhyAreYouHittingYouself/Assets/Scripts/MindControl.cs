@@ -29,23 +29,33 @@ public class MindControl : MonoBehaviour {
 
 //COME HERE, FIGURE OUT WHY THEY'RE NOT SWITCHING TEAMS
 
-	public void EnslaveTargetMindControl(params TeamMember[] targetTeamMembers)
+	/// <summary>
+    /// 
+    /// </summary>
+    /// <param name="availableBrainPower">Amount of Brain Power the Player Currently has</param>
+    /// <param name="targetTeamMembers"></param>
+    /// <returns>Remaining Brain Power after Mind Control performed</returns>
+	public void EnslaveTargetMindControl(Stats enslaverStats, params TeamMember[] targetTeamMembers)
 	{
 		foreach (TeamMember member in targetTeamMembers)
 		{
 			if (member == null) {continue;}
 			if (enslavedTargets.Contains(member)) {continue;}
+			//it's possible this enemy is too powerful, but there's another weaker one we can grab
+			if (enslaverStats.brainPower - member.statsComp.brainTax <= 0) {continue;} 
 
-			Debug.Log("Perform Add to Team");
-
+			//enslaverStats.brainPower -= member.statsComp.brainTax;
+			//consume necessary power to enslave enemy
+			enslaverStats.ConsumeBrainPower(member.statsComp.brainTax);
 			//add to player team
 			TeamManager._instance.AddToTeam(_teamMemberComp.currentTeam,
 											member);
 			enslavedTargets.Add(member);
+
 		}
 	}
 
-	public void ReleaseTargetMindControl(params TeamMember[] targetTeamMembers)
+	public void ReleaseTargetMindControl(Stats enslaverStats, params TeamMember[] targetTeamMembers)
 	{
 		foreach(TeamMember member in targetTeamMembers)
 		{
@@ -59,8 +69,11 @@ public class MindControl : MonoBehaviour {
 					break;
 				case TeamMember.Team.Player:
 					TeamManager._instance.AddToTeam(TeamMember.Team.Enemy, member);
+					//give back the brain juice that was taken
+					enslaverStats.ReplenishBrainPower(member.statsComp.brainTax);
 					break;
 			}
+			enslavedTargets.Remove(member);
 		}
 	}
 }

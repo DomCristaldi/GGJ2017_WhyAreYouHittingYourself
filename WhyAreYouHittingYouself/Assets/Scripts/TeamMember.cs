@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 [RequireComponent(typeof(Stats))]
 public class TeamMember : MonoBehaviour {
 
@@ -73,3 +77,26 @@ public class TeamMember : MonoBehaviour {
 		currentTeam = targetTeam;
 	}
 }
+
+
+#if UNITY_EDITOR
+[CustomEditor(typeof(TeamMember))]
+public class TeamMember_Editor : Editor
+{
+	private TeamMember selfScript;
+
+	void OnEnable()
+	{
+		selfScript = (TeamMember)target;
+	}
+
+	public override void OnInspectorGUI()
+	{
+		base.OnInspectorGUI();
+
+		EditorGUILayout.Space();
+		EditorGUILayout.Toggle("Is Currently Enslaved", selfScript.isCurrentlyEnslaved);
+	}
+}
+
+#endif
