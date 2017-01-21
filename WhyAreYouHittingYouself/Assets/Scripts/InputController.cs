@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(movementasdf))]
+[RequireComponent(typeof(Movement))]
 public class InputController : MonoBehaviour {
 
-    movementasdf movComp;
+    Movement movComp;
 
     public float directionHorizontal;
     public float directionVertical;
 
     void Awake()
     {
-        movComp = GetComponent<movementasdf>();
+        movComp = GetComponent<Movement>();
     }
 
 	// Use this for initialization
