@@ -38,7 +38,9 @@ public class MindControl : MonoBehaviour {
 
 			Debug.Log("Perform Add to Team");
 
-			TeamManager._instance.AddToTeam(TeamMember.GetOpposingTeam(_teamMemberComp.currentTeam));
+			//add to player team
+			TeamManager._instance.AddToTeam(_teamMemberComp.currentTeam,
+											member);
 			enslavedTargets.Add(member);
 		}
 	}

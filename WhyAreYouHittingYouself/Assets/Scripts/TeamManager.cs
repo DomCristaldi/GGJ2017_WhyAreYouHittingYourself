@@ -37,8 +37,12 @@ public class TeamManager : MonoBehaviour {
 
 	public void AddToTeam(TeamMember.Team newTeam, params TeamMember[] membersToAdd)
 	{
+		Debug.LogFormat("Adding {0} members to team", membersToAdd.Length);
+
 		foreach (TeamMember member in membersToAdd) 
 		{
+			Debug.Log("performing action on member");
+
 			//if (member.currentTeam != newTeam) //only do work if it's a differnt team
 			//{
 				switch (newTeam)
