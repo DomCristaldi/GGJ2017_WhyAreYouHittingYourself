@@ -8,13 +8,16 @@ using UnityEngine.AI;
 [RequireComponent(typeof(TeamMember))]
 public class AIBrain : MonoBehaviour {
 
-	private NavMeshAgent navAgentComp;
+	private NavMeshAgent _navAgentComp;
+	private TeamMember _teamMemberComp;
+	public TeamMember teamMemberComp{get {return _teamMemberComp;}}
 
 	public Transform targetTransform;
 
 	void Awake()
 	{
-		navAgentComp = GetComponent<NavMeshAgent>();
+		_navAgentComp = GetComponent<NavMeshAgent>();
+		_teamMemberComp = GetComponent<TeamMember>();
 	}
 
 	// Use this for initialization
@@ -26,9 +29,33 @@ public class AIBrain : MonoBehaviour {
 	void Update () {
 		if (targetTransform != null)
 		{
-			navAgentComp.destination = targetTransform.position;
-			
+			_navAgentComp.destination = targetTransform.position;
+			_teamMemberComp = GetComponent<TeamMember>();
 		}
+	}
+
+	public TeamMember FindClosestMemberOfTeam(TeamMember.Team targetTeam)
+	{
+		//_navAgentComp.CalculatePath
+		List<TeamMember> teamToSearch = TeamManager.instance.GetTargetTeam(targetTeam);
+
+		int indexOfClosestTarget = 0;
+		NavMeshPath calcPath;
+		foreach (TeamMember tMember in teamToSearch)
+		{
+			//tMember.
+		}
+		Debug.LogError("Incomplete, finish me");
+		return null;
+	}
+
+	public TeamMember FindClosestFriendly()
+	{
+		return FindClosestMemberOfTeam(teamMemberComp.currentTeam);
+	}
+	public TeamMember FindClosestEnemy()
+	{
+		return FindClosestMemberOfTeam(TeamMember.GetOpposingTeam(_teamMemberComp.currentTeam));
 	}
 
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TeamManager : MonoBehaviour {
 
-	public static TeamManager _instance;
+	private static TeamManager _instance;
 	public static TeamManager instance 
 	{
 		get
@@ -33,6 +33,21 @@ public class TeamManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	public List<TeamMember> GetTargetTeam(TeamMember.Team targetTeam)
+	{
+		switch(targetTeam) 
+		{
+			case TeamMember.Team.Player:
+				return playerTeam;
+			case TeamMember.Team.Enemy:
+				return enemyTeam;
+
+			default:
+				Debug.LogErrorFormat("Supplied unaccounted for team : {0}", targetTeam.ToString());
+				return enemyTeam;
+		}
 	}
 
 	public void AddToTeam(TeamMember.Team newTeam, params TeamMember[] membersToAdd)
