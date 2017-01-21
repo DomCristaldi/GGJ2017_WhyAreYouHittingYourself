@@ -26,6 +26,7 @@ public class AIBrain : MonoBehaviour {
 		if (targetTransform != null)
 		{
 			navAgentComp.destination = targetTransform.position;
+			
 		}
 	}
 

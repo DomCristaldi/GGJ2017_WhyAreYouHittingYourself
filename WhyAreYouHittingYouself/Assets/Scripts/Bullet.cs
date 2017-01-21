@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
 
+
 	// Use this for initialization
 	void Start () {
 		
@@ -14,6 +15,7 @@ public class Bullet : MonoBehaviour {
 	}
     void OnTriggerEnter(Collider other)
     {
+        /*
         if (other.tag == "Player")
         {
             Destroy(other.gameObject);
@@ -21,7 +23,9 @@ public class Bullet : MonoBehaviour {
         }
         else
         {
+            Debug.Log(other.tag);
             Destroy(gameObject);
         }
+        */
     }
 }

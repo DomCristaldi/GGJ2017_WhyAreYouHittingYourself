@@ -7,14 +7,14 @@ public class MindControl : MonoBehaviour {
 
 	public TeamMember enslaveTarget;
 
-	private TeamMember myTeam;
+	private TeamMember _teamMemberComp;
 
 	public List<TeamMember> enslavedTargets;
 
 	
 	void Awake()
 	{
-		myTeam = GetComponent<TeamMember>();
+		_teamMemberComp = GetComponent<TeamMember>();
 	}
 
 	// Use this for initialization
@@ -36,7 +36,7 @@ public class MindControl : MonoBehaviour {
 			if (member == null) {continue;}
 			if (enslavedTargets.Contains(member)) {continue;}
 
-			TeamManager.instance.AddToTeam(myTeam.currentTeam);
+			TeamManager._instance.AddToTeam(_teamMemberComp.currentTeam);
 			enslavedTargets.Add(member);
 		}
 	}
@@ -51,10 +51,10 @@ public class MindControl : MonoBehaviour {
 			switch(member.currentTeam)
 			{
 				case TeamMember.Team.Enemy:
-					TeamManager.instance.AddToTeam(TeamMember.Team.Player, member);
+					TeamManager._instance.AddToTeam(TeamMember.Team.Player, member);
 					break;
 				case TeamMember.Team.Player:
-					TeamManager.instance.AddToTeam(TeamMember.Team.Enemy, member);
+					TeamManager._instance.AddToTeam(TeamMember.Team.Enemy, member);
 					break;
 			}
 		}
