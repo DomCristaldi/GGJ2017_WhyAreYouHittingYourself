@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class movement : MonoBehaviour {
+public class Movement : MonoBehaviour {
     public float speed;
     public Vector3 trueMoveDirection;
     public Vector3 desireMoveDirection;
@@ -20,8 +20,8 @@ public class movement : MonoBehaviour {
         transform.position = new Vector3
         (
             transform.position.x+(speed*Time.deltaTime*trueMoveDirection.x),
-            0.0f,
-            transform.position.z+(speed*Time.deltaTime*trueMoveDirection.z)
+            transform.position.y+(speed*Time.deltaTime*trueMoveDirection.y),
+            0.0f
         );
         trueMoveDirection = desireMoveDirection;
 
