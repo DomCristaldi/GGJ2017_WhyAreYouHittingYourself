@@ -27,7 +27,7 @@ public class MindControl : MonoBehaviour {
 		
 	}
 
-
+//COME HERE, FIGURE OUT WHY THEY'RE NOT SWITCHING TEAMS
 
 	public void EnslaveTargetMindControl(params TeamMember[] targetTeamMembers)
 	{
@@ -36,7 +36,9 @@ public class MindControl : MonoBehaviour {
 			if (member == null) {continue;}
 			if (enslavedTargets.Contains(member)) {continue;}
 
-			TeamManager._instance.AddToTeam(_teamMemberComp.currentTeam);
+			Debug.Log("Perform Add to Team");
+
+			TeamManager._instance.AddToTeam(TeamMember.GetOpposingTeam(_teamMemberComp.currentTeam));
 			enslavedTargets.Add(member);
 		}
 	}

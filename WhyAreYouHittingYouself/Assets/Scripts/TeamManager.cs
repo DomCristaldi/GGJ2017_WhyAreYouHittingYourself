@@ -44,14 +44,18 @@ public class TeamManager : MonoBehaviour {
 				switch (newTeam)
 				{
 					case TeamMember.Team.Player:	//add to player team
+						Debug.Log("Switch to Player Team");
 						if (playerTeam.Contains(member)) {return;}
 						enemyTeam.Remove(member);
 						playerTeam.Add(member);
+						member.ChangeTeam(TeamMember.Team.Player);
 						break;
 					case TeamMember.Team.Enemy:		//add to enemy team
+						Debug.Log("Switch to Enemy Team");
 						if (enemyTeam.Contains(member)) {return;}
 						playerTeam.Remove(member);
 						enemyTeam.Add(member);
+						member.ChangeTeam(TeamMember.Team.Enemy);
 						break;
 				}
 

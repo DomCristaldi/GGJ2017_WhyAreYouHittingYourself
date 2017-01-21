@@ -10,6 +10,21 @@ public class TeamMember : MonoBehaviour {
 		Enemy = 1,
 	}
 
+	public static Team GetOpposingTeam(Team friendlyTeam)
+	{
+		switch(friendlyTeam)
+		{
+			case Team.Enemy:
+				return Team.Player;
+			case Team.Player:
+				return Team.Enemy;
+
+			default:
+				Debug.LogErrorFormat("Supplied unaccounted for team: {0}", friendlyTeam.ToString());
+				return friendlyTeam;
+		}
+	}
+
 	private Stats _statsComp;
 	public Stats statsComp
 	{
