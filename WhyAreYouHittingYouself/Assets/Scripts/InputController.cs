@@ -5,7 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(Movement))]
 public class InputController : MonoBehaviour {
 
-    Movement movComp;
+    private Movement movComp;
+
 
     public float directionHorizontal;
     public float directionVertical;

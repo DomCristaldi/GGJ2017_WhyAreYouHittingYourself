@@ -2,10 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
+[RequireComponent(typeof(Rigidbody))]
 public class Movement : MonoBehaviour {
+
+    private Rigidbody rigBod;
+
     public float speed;
     public Vector3 trueMoveDirection;
     public Vector3 desireMoveDirection;
+
+    public float currentHorrizontalSpeed
+    {
+        get {
+            return speed*trueMoveDirection.x;
+        }
+    }
+
+    public float currentVerticalSpeed
+    {
+        get{
+            return speed*trueMoveDirection.z;
+        }
+    }
+
+    void Awake()
+    {
+        rigBod = GetComponent<Rigidbody>();
+    }
+
+
 	// Use this for initialization
 	void Start () {
 		
@@ -17,13 +46,47 @@ public class Movement : MonoBehaviour {
         trueMoveDirection = trueMoveDirection.normalized;
         desireMoveDirection = desireMoveDirection.normalized;
 
+        rigBod.velocity = new Vector3(
+            currentHorrizontalSpeed,
+            0.0f,
+            currentVerticalSpeed
+        );
+
+        /*
         transform.position = new Vector3
         (
-            transform.position.x+(speed*Time.deltaTime*trueMoveDirection.x),
+            transform.position.x+(currentHorrizontalSpeed),
             0.0f,
-            transform.position.z+(speed*Time.deltaTime*trueMoveDirection.z)
+            transform.position.z+(currentVerticalSpeed)
         );
+        */
 
         trueMoveDirection = desireMoveDirection;
 	}
 }
+
+/*
+#if UNITY_EDITOR
+[CustomEditor(typeof(Movement))]
+public class Movement_Editor : Editor
+{
+    Movement selfScript;
+    void OnEnable()
+    {
+        selfScript = (Movement)target;
+    }
+
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+
+
+        EditorGUILayout.Vector3Field("Speed",
+                                     new Vector3(selfScript.currentHorrizontalSpeed,
+                                                 0.0f,
+                                                 selfScript.currentVerticalSpeed));
+                                                 
+    }
+}
+#endif
+*/

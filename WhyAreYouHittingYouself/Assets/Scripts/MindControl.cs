@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(TeamMember))]
 public class MindControl : MonoBehaviour {
 
+	public TeamMember enslaveTarget;
+
 	private TeamMember myTeam;
 
 	public List<TeamMember> enslavedTargets;
@@ -24,6 +26,7 @@ public class MindControl : MonoBehaviour {
 	void Update () {
 		
 	}
+
 
 
 	public void EnslaveTargetMindControl(params TeamMember[] targetTeamMembers)

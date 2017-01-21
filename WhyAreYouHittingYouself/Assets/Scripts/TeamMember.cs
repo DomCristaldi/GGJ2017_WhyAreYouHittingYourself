@@ -25,6 +25,9 @@ public class TeamMember : MonoBehaviour {
 		
 	}
 
+
+
+
 	public void ChangeTeam(Team targetTeam)
 	{
 		if (currentTeam == targetTeam) {return;}
