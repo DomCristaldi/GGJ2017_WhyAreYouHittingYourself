@@ -9,7 +9,8 @@ public class GameManager : MonoBehaviour {
 	{
 		get {return _instance;}
 	}
-
+    TeamManager demo = new TeamManager();
+    
 	public PlayerController playerRef;
 
 	[SerializeField]
@@ -23,11 +24,21 @@ public class GameManager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		SetTimeCoefficient(timeCoefficient);
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		
+        int enemyTeamSize = TeamManager.instance.enemyTeam.Count;
+        Stats hp = new Stats();
+        int playerHp = hp.healthState;
+        if (enemyTeamSize == 0)
+        {
+            EndGame_PlayerWins();
+        }
+        if (playerHp==0)
+        {
+            EndGame_PlayerLoses();
+        }
 	}
 
 	/// <summary>
@@ -42,12 +53,11 @@ public class GameManager : MonoBehaviour {
 
 	private void EndGame_PlayerWins()
 	{
-
+        
 	}
 
 	private void EndGame_PlayerLoses()
 	{
-
+        
 	}
-
 }
