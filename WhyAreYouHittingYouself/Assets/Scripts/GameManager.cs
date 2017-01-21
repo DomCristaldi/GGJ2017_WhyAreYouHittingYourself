@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour {
 	{
 		get {return _instance;}
 	}
-    TeamManager demo = new TeamManager();
     
 	public PlayerController playerRef;
 
@@ -29,13 +28,12 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         int enemyTeamSize = TeamManager.instance.enemyTeam.Count;
-        Stats hp = new Stats();
-        int playerHp = hp.healthState;
+
         if (enemyTeamSize == 0)
         {
             EndGame_PlayerWins();
         }
-        if (playerHp==0)
+        if (playerRef.statsComp.healthState ==0)
         {
             EndGame_PlayerLoses();
         }

@@ -7,7 +7,7 @@ using UnityEngine;
 public class ActorController : MonoBehaviour {
 
 	private Stats _statsComp;
-	protected Stats statsComp
+	public Stats statsComp
 	{
 		get {return _statsComp;}
 	}
