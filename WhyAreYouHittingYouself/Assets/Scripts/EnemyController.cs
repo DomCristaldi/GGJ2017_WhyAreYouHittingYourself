@@ -2,37 +2,45 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(TeamMember))]
-public class EnemyController : MonoBehaviour {
+public class EnemyController : ActorController {
 
-	private TeamMember _teamComp;
-	public TeamMember teamComp
-	{
-		get {return _teamComp;}
-	}
 
-	void Awake()
+
+	protected override void Awake()
 	{
-		_teamComp = GetComponent<TeamMember>();
+		base.Awake();
 	}
 
 	// Use this for initialization
-	void Start () {
-		
+	protected override void Start () {
+		base.Start();
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
+	protected override void Update () {
+		base.Update();
 	}
 
 	void OnMouseEnter()
 	{
-		HandlePossession();
+		SetAspossessionTarget();
 	}
 
-	public void HandlePossession()
+	void OnMouseExit()
 	{
-		GameManager.instance.playerRef.mindControlComp.enslaveTarget = teamComp;
+		ReleaseAsPossessionTarget();
+	}
+
+
+	private void SetAspossessionTarget()
+	{
+		GameManager.instance.playerRef.mindControlComp.enslaveTarget = teamMemberComp;
+	}
+	private void ReleaseAsPossessionTarget()
+	{
+		if (GameManager.instance.playerRef.mindControlComp.enslaveTarget == teamMemberComp)
+		{
+			GameManager.instance.playerRef.mindControlComp.enslaveTarget = null;
+		}
 	}
 }

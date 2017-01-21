@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4251718505154390}
   - component: {fileID: 54734009031930398}
   - component: {fileID: 114887281315044412}
-  - component: {fileID: 114935886126109126}
+  - component: {fileID: 114695541506307758}
   - component: {fileID: 114615857459077634}
   - component: {fileID: 114347148235955002}
   - component: {fileID: 195054199899905098}
@@ -71,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1100003876547150}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.11, y: 0.29, z: -0.34}
+  m_LocalPosition: {x: 0.012, y: 0.29, z: -1.783}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4712332976818636}
@@ -144,6 +144,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTeam: 1
+--- !u!114 &114695541506307758
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1100003876547150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39589a5303144e94f858239e9b4c0a54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brainPower: 0
+  maxPower: 0
+  minPower: 0
+  healthState: 10
+  maxHealth: 10
+  minHealth: 0
+  damagePoint: 5
+  brainWaveRadius: 0
+  death: 0
 --- !u!114 &114887281315044412
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -155,19 +175,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ab49af192515c14e9dad5631d96f4bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114935886126109126
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1100003876547150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e19c6e715743fa94abc4cfc86fdbb29b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 12
-  maxHealth: 12
 --- !u!135 &135667839786427954
 SphereCollider:
   m_ObjectHideFlags: 1

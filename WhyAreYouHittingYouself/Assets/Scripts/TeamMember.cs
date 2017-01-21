@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Stats))]
 public class TeamMember : MonoBehaviour {
 
 	public enum Team{
@@ -9,23 +10,45 @@ public class TeamMember : MonoBehaviour {
 		Enemy = 1,
 	}
 
+	private Stats _statsComp;
+	public Stats statsComp
+	{
+		get {return _statsComp;}
+	}
+
+
 	public Team currentTeam;
+
+	private Team _originalTeam; //helps with keeping track of enslavement status
+	public Team originalTeam
+	{
+		get {return _originalTeam;}
+	}
+
+	public bool isCurrentlyEnslaved
+	{
+		get {return currentTeam != _originalTeam;}
+	}
+
+	void Awake()
+	{
+		_statsComp = GetComponent<Stats>();
+	}
 
 	// Use this for initialization
 	void Start () {
-		TeamManager.instance.AddToTeam(currentTeam, this);
+		_originalTeam = currentTeam;
+		TeamManager._instance.AddToTeam(currentTeam, this);
 	}
 
 	void OnDestroy() {
-		TeamManager.instance.RemoveFromAllTeams(this);
+		TeamManager._instance.RemoveFromAllTeams(this);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
-
-
 
 
 	public void ChangeTeam(Team targetTeam)

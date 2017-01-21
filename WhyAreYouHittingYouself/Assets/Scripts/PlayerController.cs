@@ -1,8 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+using UnityEngine;
+using UnityEngine.Events;
+
+[RequireComponent(typeof(MindControl))]
+public class PlayerController : ActorController {
+	
+	
 	private MindControl _mindControlComp;
 	public MindControl mindControlComp
 	{
@@ -15,13 +20,19 @@ public class PlayerController : MonoBehaviour {
     public KeyCode PossessTargetKey = KeyCode.Mouse0;
     public KeyCode ReleasePossessionKey = KeyCode.Mouse1;
 
-	void Awake()
-	{
+	public UnityEvent FailedtoMindControlEvent;
+
+	protected override void Awake()
+	{	
+		base.Awake();
+
 		_mindControlComp = GetComponent<MindControl>();
 	}
 
 	// Use this for initialization
-	void Start () {
+	protected override void Start () {
+		base.Start();
+
 		if (GameManager.instance != null)
 		{
 			GameManager.instance.playerRef = this;
@@ -29,12 +40,39 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	protected override void Update () {
+		base.Update();
+
 		HandleInput();
 	}
 
+
 	private void HandleInput()
 	{
-
+		if (mindControlComp.enslaveTarget != null)
+		{
+			//ATTEMPT TARGET POSSESSION
+			if (Input.GetKeyDown(PossessTargetKey)
+			 && mindControlComp.enslaveTarget.currentTeam != teamMemberComp.currentTeam)
+			{
+				if (statsComp.brainPower - mindControlComp.enslaveTarget.statsComp.brainTax > 0)
+				{
+					mindControlComp.EnslaveTargetMindControl(mindControlComp.enslaveTarget);
+					Debug.LogFormat("Success Mind Control of {0}", mindControlComp.enslaveTarget);
+				}
+				else
+				{
+					FailedtoMindControlEvent.Invoke();
+					Debug.Log("Failed Mind Control");
+				}
+			}
+			//RELEASE TARGET FROM POSSESSION
+			if (Input.GetKeyDown(ReleasePossessionKey)									//key was hit
+			 && mindControlComp.enslaveTarget.currentTeam == teamMemberComp.currentTeam //it's on our team
+			 && mindControlComp.enslaveTarget.isCurrentlyEnslaved)						//and we're currently enslaving it
+			{
+				mindControlComp.ReleaseTargetMindControl(mindControlComp.enslaveTarget);//then we can release it
+			}
+		}
 	}
 }

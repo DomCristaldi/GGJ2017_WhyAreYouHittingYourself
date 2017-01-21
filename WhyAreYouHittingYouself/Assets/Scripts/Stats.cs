@@ -8,6 +8,9 @@ public class Stats : MonoBehaviour {
 	public int brainPower;
 	public int maxPower;
 	public int minPower;
+
+	public int brainTax = 1;
+
 	public int healthState;
 	public int maxHealth;
 	public int minHealth;

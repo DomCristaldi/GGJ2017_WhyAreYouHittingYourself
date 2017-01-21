@@ -4,7 +4,15 @@ using UnityEngine;
 
 public class TeamManager : MonoBehaviour {
 
-	public static TeamManager instance;
+	public static TeamManager _instance;
+	public static TeamManager instance 
+	{
+		get
+		{
+			return _instance;
+		}
+	}
+
 
 	public List<TeamMember> playerTeam;
 	public List<TeamMember> enemyTeam;
@@ -12,8 +20,9 @@ public class TeamManager : MonoBehaviour {
 
 	void Awake()
 	{
-		if (instance != null) {Destroy(this);}
-		instance = this;
+		if (_instance != null) {Destroy(this);}
+		_instance = this;
+
 	}
 
 	// Use this for initialization
@@ -28,10 +37,8 @@ public class TeamManager : MonoBehaviour {
 
 	public void AddToTeam(TeamMember.Team newTeam, params TeamMember[] membersToAdd)
 	{
-
 		foreach (TeamMember member in membersToAdd) 
 		{
-
 			//if (member.currentTeam != newTeam) //only do work if it's a differnt team
 			//{
 				switch (newTeam)
