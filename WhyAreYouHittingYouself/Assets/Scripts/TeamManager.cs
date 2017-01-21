@@ -79,6 +79,12 @@ public class TeamManager : MonoBehaviour {
 				}
 
 				actor.teamMemberComp.ChangeTeam(newTeam);		//signal the change on the team member
+				
+				if ((actor as EnemyController) != null)
+				{
+					(actor as EnemyController).brain.targetTransform = null;
+				}
+				
 			//}
 		}
 	}
