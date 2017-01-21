@@ -34,14 +34,14 @@ public class AIBrain : MonoBehaviour {
 		}
 	}
 
-	public TeamMember FindClosestMemberOfTeam(TeamMember.Team targetTeam)
+	public ActorController FindClosestMemberOfTeam(TeamMember.Team targetTeam)
 	{
 		//_navAgentComp.CalculatePath
-		List<TeamMember> teamToSearch = TeamManager.instance.GetTargetTeam(targetTeam);
+		List<ActorController> teamToSearch = TeamManager.instance.GetTargetTeam(targetTeam);
 
 		int indexOfClosestTarget = 0;
 		NavMeshPath calcPath;
-		foreach (TeamMember tMember in teamToSearch)
+		foreach (ActorController actor in teamToSearch)
 		{
 			//tMember.
 		}
@@ -49,11 +49,11 @@ public class AIBrain : MonoBehaviour {
 		return null;
 	}
 
-	public TeamMember FindClosestFriendly()
+	public ActorController FindClosestFriendly()
 	{
 		return FindClosestMemberOfTeam(teamMemberComp.currentTeam);
 	}
-	public TeamMember FindClosestEnemy()
+	public ActorController FindClosestEnemy()
 	{
 		return FindClosestMemberOfTeam(TeamMember.GetOpposingTeam(_teamMemberComp.currentTeam));
 	}

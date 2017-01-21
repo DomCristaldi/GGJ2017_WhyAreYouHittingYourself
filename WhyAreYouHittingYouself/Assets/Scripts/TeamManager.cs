@@ -14,8 +14,8 @@ public class TeamManager : MonoBehaviour {
 	}
 
 
-	public List<TeamMember> playerTeam;
-	public List<TeamMember> enemyTeam;
+	public List<ActorController> playerTeam;
+	public List<ActorController> enemyTeam;
 
 
 	void Awake()
@@ -35,7 +35,7 @@ public class TeamManager : MonoBehaviour {
 		
 	}
 
-	public List<TeamMember> GetTargetTeam(TeamMember.Team targetTeam)
+	public List<ActorController> GetTargetTeam(TeamMember.Team targetTeam)
 	{
 		switch(targetTeam) 
 		{
@@ -50,11 +50,11 @@ public class TeamManager : MonoBehaviour {
 		}
 	}
 
-	public void AddToTeam(TeamMember.Team newTeam, params TeamMember[] membersToAdd)
+	public void AddToTeam(TeamMember.Team newTeam, params ActorController[] membersToAdd)
 	{
 		Debug.LogFormat("Adding {0} members to team", membersToAdd.Length);
 
-		foreach (TeamMember member in membersToAdd) 
+		foreach (ActorController actor in membersToAdd) 
 		{
 			Debug.Log("performing action on member");
 
@@ -64,31 +64,31 @@ public class TeamManager : MonoBehaviour {
 				{
 					case TeamMember.Team.Player:	//add to player team
 						Debug.Log("Switch to Player Team");
-						if (playerTeam.Contains(member)) {return;}
-						enemyTeam.Remove(member);
-						playerTeam.Add(member);
-						member.ChangeTeam(TeamMember.Team.Player);
+						if (playerTeam.Contains(actor)) {return;}
+						enemyTeam.Remove(actor);
+						playerTeam.Add(actor);
+						actor.teamMemberComp.ChangeTeam(TeamMember.Team.Player);
 						break;
 					case TeamMember.Team.Enemy:		//add to enemy team
 						Debug.Log("Switch to Enemy Team");
-						if (enemyTeam.Contains(member)) {return;}
-						playerTeam.Remove(member);
-						enemyTeam.Add(member);
-						member.ChangeTeam(TeamMember.Team.Enemy);
+						if (enemyTeam.Contains(actor)) {return;}
+						playerTeam.Remove(actor);
+						enemyTeam.Add(actor);
+						actor.teamMemberComp.ChangeTeam(TeamMember.Team.Enemy);
 						break;
 				}
 
-				member.ChangeTeam(newTeam);		//signal the change on the team member
+				actor.teamMemberComp.ChangeTeam(newTeam);		//signal the change on the team member
 			//}
 		}
 	}
 
-	public void RemoveFromAllTeams(params TeamMember[] membersToRemove)
+	public void RemoveFromAllTeams(params ActorController[] actorsToRemove)
 	{
-		foreach(TeamMember member in membersToRemove)
+		foreach(ActorController actor in actorsToRemove)
 		{
-			playerTeam.Remove(member);
-			enemyTeam.Remove(member);
+			playerTeam.Remove(actor);
+			enemyTeam.Remove(actor);
 		}
 	}
 }

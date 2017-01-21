@@ -57,11 +57,9 @@ public class TeamMember : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		_originalTeam = currentTeam;
-		TeamManager._instance.AddToTeam(currentTeam, this);
 	}
 
 	void OnDestroy() {
-		TeamManager._instance.RemoveFromAllTeams(this);
 	}
 	
 	// Update is called once per frame

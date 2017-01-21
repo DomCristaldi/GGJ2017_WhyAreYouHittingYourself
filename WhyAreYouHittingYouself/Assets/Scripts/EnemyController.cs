@@ -34,7 +34,7 @@ public class EnemyController : ActorController {
 
 	private void SetAspossessionTarget()
 	{
-		GameManager.instance.playerRef.mindControlComp.enslaveTarget = teamMemberComp;
+		GameManager.instance.playerRef.mindControlComp.enslaveTarget = this;
 	}
 	private void ReleaseAsPossessionTarget()
 	{

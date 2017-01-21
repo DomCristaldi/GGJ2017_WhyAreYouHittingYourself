@@ -30,9 +30,14 @@ public class ActorController : MonoBehaviour {
 
 	// Use this for initialization
 	protected virtual void Start () {
-		
+		TeamManager.instance.AddToTeam(teamMemberComp.currentTeam, this);
 	}
 	
+	protected virtual void Destroy()
+	{
+		TeamManager.instance.RemoveFromAllTeams(this);
+	}
+
 	// Update is called once per frame
 	protected virtual void Update () {
 		
