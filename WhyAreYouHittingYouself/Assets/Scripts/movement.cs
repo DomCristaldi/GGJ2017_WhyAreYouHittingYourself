@@ -23,7 +23,7 @@ public class Movement : MonoBehaviour {
             transform.position.y+(speed*Time.deltaTime*trueMoveDirection.y),
             0.0f
         );
-        trueMoveDirection = desireMoveDirection;
 
+        trueMoveDirection = desireMoveDirection;
 	}
 }
