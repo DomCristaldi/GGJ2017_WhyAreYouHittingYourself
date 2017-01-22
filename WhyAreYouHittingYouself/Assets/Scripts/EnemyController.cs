@@ -23,6 +23,15 @@ public class EnemyController : ActorController {
 	// Update is called once per frame
 	protected override void Update () {
 		base.Update();
+
+		//make sure we're on the same plane as the player b/c bullets
+		if (GameManager.canGetPlayer
+			&& !Mathf.Approximately(transform.position.y, GameManager.instance.playerRef.transform.position.y))
+		{
+			transform.position = new Vector3(transform.position.x,
+											 GameManager.instance.playerRef.transform.position.y,
+											 transform.position.z);
+		}
 	}
 
 	void OnMouseEnter()
@@ -33,6 +42,13 @@ public class EnemyController : ActorController {
 	void OnMouseExit()
 	{
 		ReleaseAsPossessionTarget();
+	}
+
+	protected override void HandleDeath()
+	{
+		base.HandleDeath();
+
+		Destroy(gameObject);
 	}
 
 

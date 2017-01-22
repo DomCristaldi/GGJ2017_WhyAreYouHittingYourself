@@ -12,6 +12,14 @@ public class GameManager : MonoBehaviour {
     
 	public PlayerController playerRef;
 
+	public static bool canGetPlayer
+	{
+		get
+		{
+			return instance != null && instance.playerRef != null;
+		}
+	}
+
 	[SerializeField]
 	private float timeCoefficient = 1.0f;
 
