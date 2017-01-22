@@ -1,0 +1,600 @@
+fileFormatVersion: 2
+guid: af6e9b55019e44130b66952d2ca43ead
+timeCreated: 1485057333
+licenseType: Pro
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: PC-Death-Sprite - Spreadsheet_0
+    21300002: PC-Death-Sprite - Spreadsheet_1
+    21300004: PC-Death-Sprite - Spreadsheet_2
+    21300006: PC-Death-Sprite - Spreadsheet_3
+    21300008: PC-Death-Sprite - Spreadsheet_4
+    21300010: PC-Death-Sprite - Spreadsheet_5
+    21300012: PC-Death-Sprite - Spreadsheet_6
+    21300014: PC-Death-Sprite - Spreadsheet_7
+    21300016: PC-Death-Sprite - Spreadsheet_8
+    21300018: PC-Death-Sprite - Spreadsheet_9
+    21300020: PC-Death-Sprite - Spreadsheet_10
+    21300022: PC-Death-Sprite - Spreadsheet_11
+    21300024: PC-Death-Sprite - Spreadsheet_12
+    21300026: PC-Death-Sprite - Spreadsheet_13
+    21300028: PC-Death-Sprite - Spreadsheet_14
+    21300030: PC-Death-Sprite - Spreadsheet_15
+    21300032: PC-Death-Sprite - Spreadsheet_16
+    21300034: PC-Death-Sprite - Spreadsheet_17
+    21300036: PC-Death-Sprite - Spreadsheet_18
+    21300038: PC-Death-Sprite - Spreadsheet_19
+    21300040: PC-Death-Sprite - Spreadsheet_20
+    21300042: PC-Death-Sprite - Spreadsheet_21
+    21300044: PC-Death-Sprite - Spreadsheet_22
+    21300046: PC-Death-Sprite - Spreadsheet_23
+    21300048: PC-Death-Sprite - Spreadsheet_24
+    21300050: PC-Death-Sprite - Spreadsheet_25
+    21300052: PC-Death-Sprite - Spreadsheet_26
+    21300054: PC-Death-Sprite - Spreadsheet_27
+    21300056: PC-Death-Sprite - Spreadsheet_28
+    21300058: PC-Death-Sprite - Spreadsheet_29
+    21300060: PC-Death-Sprite - Spreadsheet_30
+    21300062: PC-Death-Sprite - Spreadsheet_31
+    21300064: PC-Death-Sprite - Spreadsheet_32
+    21300066: PC-Death-Sprite - Spreadsheet_33
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: tvOS
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Tizen
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Samsung TV
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PC-Death-Sprite - Spreadsheet_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 454
+        width: 37
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PC-Death-Sprite - Spreadsheet_1
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 457
+        width: 39
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PC-Death-Sprite - Spreadsheet_2
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 457
+        width: 39
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PC-Death-Sprite - Spreadsheet_3
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 457
+        width: 38
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PC-Death-Sprite - Spreadsheet_4
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 457
+        width: 38
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PC-Death-Sprite - Spreadsheet_5
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 457
+        width: 38
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PC-Death-Sprite - Spreadsheet_6
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 457
+        width: 38
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PC-Death-Sprite - Spreadsheet_7
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 457
+        width: 38
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PC-Death-Sprite - Spreadsheet_8
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 393
+        width: 38
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PC-Death-Sprite - Spreadsheet_9
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 393
+        width: 38
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PC-Death-Sprite - Spreadsheet_10
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 393
+        width: 38
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PC-Death-Sprite - Spreadsheet_11
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 393
+        width: 38
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PC-Death-Sprite - Spreadsheet_12
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 393
+        width: 38
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PC-Death-Sprite - Spreadsheet_13
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 393
+        width: 38
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PC-Death-Sprite - Spreadsheet_14
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 393
+        width: 38
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PC-Death-Sprite - Spreadsheet_15
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 393
+        width: 38
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PC-Death-Sprite - Spreadsheet_16
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 329
+        width: 38
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PC-Death-Sprite - Spreadsheet_17
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 329
+        width: 38
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PC-Death-Sprite - Spreadsheet_18
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 329
+        width: 38
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PC-Death-Sprite - Spreadsheet_19
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 329
+        width: 38
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PC-Death-Sprite - Spreadsheet_20
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 329
+        width: 38
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PC-Death-Sprite - Spreadsheet_21
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 327
+        width: 36
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PC-Death-Sprite - Spreadsheet_22
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 329
+        width: 37
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PC-Death-Sprite - Spreadsheet_23
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 322
+        width: 41
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PC-Death-Sprite - Spreadsheet_24
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 262
+        width: 53
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PC-Death-Sprite - Spreadsheet_25
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 267
+        width: 61
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PC-Death-Sprite - Spreadsheet_26
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 298
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PC-Death-Sprite - Spreadsheet_27
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 257
+        width: 62
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PC-Death-Sprite - Spreadsheet_28
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 255
+        width: 15
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PC-Death-Sprite - Spreadsheet_29
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 232
+        width: 73
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PC-Death-Sprite - Spreadsheet_30
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 250
+        width: 66
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PC-Death-Sprite - Spreadsheet_31
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 241
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PC-Death-Sprite - Spreadsheet_32
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 233
+        width: 12
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: PC-Death-Sprite - Spreadsheet_33
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 225
+        width: 17
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
