@@ -52,7 +52,20 @@ public class BulletSpawner : MonoBehaviour {
 		
 		//make the bullet fly off in the desired direction
 		spawnedBullet.GetComponent<Movement>().desireMoveDirection = bulletHeading;
+		//spawnedBullet.GetComponent<Bullet>().owningTeam = transform.root.GetComponent<TeamMember>().currentTeam;
 
+/*
+		Collider[] bulletColliders = spawnedBullet.GetComponentsInChildren<Collider>();
+		foreach (Collider ownerCol in transform.root.GetComponentsInChildren<Collider>())
+		{
+			foreach (Collider bulletCol in bulletColliders)
+			{
+				Physics.IgnoreCollision(ownerCol,
+										bulletCol,
+										true);
+			}
+		}
+*/
 		StartCoroutine(ShootCooldownRoutine(fireRate));
 	}
 

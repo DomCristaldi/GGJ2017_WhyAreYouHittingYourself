@@ -129,6 +129,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 480e6af4398118841af34fe469f845ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  owningTeam: 0
+  bulletLifetime: 1
+  damageAmount: 0
 --- !u!114 &114267139732982412
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -152,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f03fe2b1f0c47c49b660dd34723bb41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 7.5
   trueMoveDirection: {x: 0, y: 0, z: 0}
   desireMoveDirection: {x: 0, y: 0, z: 0}
 --- !u!135 &135881925909849962

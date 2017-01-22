@@ -19,6 +19,8 @@ public class AIBrain : MonoBehaviour {
 	[Header("Follow Settings")]
 	public Transform targetTransform;
 
+	public bool onlyShootAtStoppingDistance = true;
+
 	[Space]
 	[Header("Shoot Settings")]
 	public float shootRange = 5.0f;
@@ -59,6 +61,11 @@ public class AIBrain : MonoBehaviour {
 	{
 		//sanity check
 		if (targetTransform == null) {return false;}
+
+/*
+		if (onlyShootAtStoppingDistance
+		 && navAgentComp.)
+*/
 
 		Vector3 planarHeading = Vector3.Normalize(
 									Vector3.ProjectOnPlane(targetTransform.position - transform.position,
