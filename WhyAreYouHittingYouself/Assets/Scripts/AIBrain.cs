@@ -134,7 +134,7 @@ public class AIBrain : MonoBehaviour {
 		
 		//Debug.Log(Vector3.Magnitude(planarHeading));
 		
-		if (Vector3.Magnitude(planarHeading) <= shootRange);
+		if (Vector3.Magnitude(planarHeading) <= shootRange)
 		{
 
 			//Debug.Log("attack");

@@ -11,6 +11,8 @@ using UnityEngine.Events;
 public class PlayerController : ActorController {
 	
 	
+	public ParticleSystem brainwaveEmitter;
+
 	private MindControl _mindControlComp;
 	public MindControl mindControlComp
 	{
@@ -104,6 +106,8 @@ public class PlayerController : ActorController {
 				{
 					mindControlComp.EnslaveTargetMindControl(this,
 															 mindControlComp.enslaveTarget);
+
+					brainwaveEmitter.Emit(200);
 				}
 				//FAIL
 				else
