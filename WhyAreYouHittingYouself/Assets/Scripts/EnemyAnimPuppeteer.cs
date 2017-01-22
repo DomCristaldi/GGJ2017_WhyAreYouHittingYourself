@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Sprites;
 
 [RequireComponent(typeof(AIBrain))]
 [RequireComponent(typeof(Stats))]
@@ -9,6 +10,9 @@ public class EnemyAnimPuppeteer : AnimationPuppeteer {
 	private AIBrain _brain;
 
 	private Stats _stats;
+
+	public Sprite IdleSprite;
+	public Sprite ShootingSprite;
 
 	public Vector3 heldMeshRotation;
 	
@@ -44,7 +48,7 @@ public class EnemyAnimPuppeteer : AnimationPuppeteer {
 		}
 		else 
 		{
-			if (_brain.isShooting)
+			if (_brain.canShoot)
 			{
 				armSpriteRen.enabled = true;
 			}

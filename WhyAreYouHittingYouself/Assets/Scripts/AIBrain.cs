@@ -15,6 +15,9 @@ public class AIBrain : MonoBehaviour {
 	private TeamMember _teamMemberComp;
 	public TeamMember teamMemberComp{get {return _teamMemberComp;}}
 	
+	private bool _canshoot = false;
+	public bool canShoot {get{return _canshoot;}}
+
 	private bool _isShooting = false;
 	public bool isShooting {get{return _isShooting;}}
 
@@ -106,7 +109,7 @@ public class AIBrain : MonoBehaviour {
 	{
 		//sanity check
 		if (targetTransform == null) {return false;}
-		if (isShooting) {return false;}
+		if (canShoot) {return false;}
 		if (TeamManager.instance.enemyTeam.Count == 0) {return false;}
 
 /*
@@ -142,6 +145,7 @@ public class AIBrain : MonoBehaviour {
 		//_navAgentComp.speed = 0.0f;
 		
 		_navAgentComp.Stop();
+		_canshoot = true;
 		_isShooting = true;
 
 		yield return new WaitForSeconds(timeToLineUpShot);
@@ -149,11 +153,11 @@ public class AIBrain : MonoBehaviour {
 		bulletSpawnerRef.FireBullet(transform.forward);
 
 		_navAgentComp.Resume();
-
+		_isShooting = false;
 
 		yield return new WaitForSeconds(shootRecoveryTime);
 
-		_isShooting = false;
+		_canshoot = false;
 
 		//_navAgentComp.speed = oldSpeed;
 		yield break;
