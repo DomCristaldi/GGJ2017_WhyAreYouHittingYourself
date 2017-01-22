@@ -39,6 +39,9 @@ public class AIBrain : MonoBehaviour {
 	public float shootRange = 5.0f;
 	public float shootAngle = 0.1f;
 
+	public float lineUpShotTime = 0.1f;
+	public float shootRecoveryTime = 0.2f;
+
 
 	void Awake()
 	{
@@ -70,7 +73,7 @@ public class AIBrain : MonoBehaviour {
 		//Debug.LogFormat("Can Shoot: {0}", CheckCanAttack());
 		if (CheckCanAttack())
 		{
-			bulletSpawnerRef.FireBullet(transform.forward);
+			StartCoroutine(AttemptAttackRoutine(lineUpShotTime));
 		}
 	}
 
@@ -98,20 +101,45 @@ public class AIBrain : MonoBehaviour {
 		 && navAgentComp.)
 */
 
-		Vector3 planarHeading = Vector3.Normalize(
-									Vector3.ProjectOnPlane(targetTransform.position - transform.position,
-														   Vector3.up)
-												 );
+		Vector3 planarHeading = Vector3.ProjectOnPlane(targetTransform.position - transform.position,
+													   Vector3.up);
+
 
 		//checking with squares is faster
-		if (Vector3.SqrMagnitude(planarHeading) <= Mathf.Pow(shootRange, 2.0f)
-		 && (1.0f - Vector3.Dot(planarHeading, transform.forward)) <= shootAngle)
+		//if (Vector3.Distance(targetTransform.position, transform.position) <= shootRange /*Mathf.Pow(shootRange, 2.0f)*/
+		// && (1.0f - Vector3.Dot(planarHeading.normalized, transform.forward)) <= shootAngle)
+		//)
+		
+		//Debug.Log(Vector3.Magnitude(planarHeading));
+		
+		if (Vector3.Magnitude(planarHeading) <= shootRange);
 		{
+
+			//Debug.Log("attack");
 			return true;
 		}
 
 		//failed all checks, return false
 		return false;
+	}
+
+	private IEnumerator AttemptAttackRoutine(float timeToLineUpShot)
+	{
+		//float oldSpeed = _navAgentComp.speed;
+		//_navAgentComp.speed = 0.0f;
+		
+		_navAgentComp.Stop();
+
+		yield return new WaitForSeconds(timeToLineUpShot);
+
+		bulletSpawnerRef.FireBullet(transform.forward);
+
+		yield return new WaitForSeconds(shootRecoveryTime);
+
+		_navAgentComp.Resume();
+
+		//_navAgentComp.speed = oldSpeed;
+		yield break;
 	}
 
 	public ActorController FindClosestMemberOfTeam(TeamMember.Team targetTeam)

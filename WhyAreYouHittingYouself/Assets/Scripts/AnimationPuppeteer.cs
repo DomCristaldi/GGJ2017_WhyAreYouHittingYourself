@@ -8,13 +8,13 @@ public class AnimationPuppeteer : MonoBehaviour {
 
 	public string deathBool = "Bool_IsDead";
 
-	void Awake()
+	protected virtual void Awake()
 	{
 
 	}
 
 	// Use this for initialization
-	void Start () {
+	protected virtual void Start () {
 		if (animComp == null)
 		{
 			Debug.LogError("Missing Animator Component Reference for Animation Puppeteer. Try assigning manually by dragging it in the Unity Editor Inspector");
@@ -24,11 +24,11 @@ public class AnimationPuppeteer : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	protected virtual void Update () {
 		
 	}
 
-	public void SetDeathState(bool isDead)
+	public virtual void SetDeathState(bool isDead)
 	{
 		animComp.SetBool(Animator.StringToHash(deathBool),
 						 isDead);

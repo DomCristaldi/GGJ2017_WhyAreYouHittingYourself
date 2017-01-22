@@ -37,15 +37,9 @@ public class BulletSpawner : MonoBehaviour {
 		_audSrc = GetComponent<AudioSource>();
 	}
 
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+
 
 	public void FireBullet(Vector3 bulletHeading)
 	{
@@ -57,7 +51,8 @@ public class BulletSpawner : MonoBehaviour {
 		//create the bullet and store a reference to it
 		GameObject spawnedBullet = Instantiate(bulletPrefab,
 											   transform.position,
-											   Quaternion.LookRotation(bulletHeading))
+											   transform.rotation)
+											   //Quaternion.LookRotation(bulletHeading))
 								   as GameObject;
 		
 		if (GameManager.instance != null
@@ -98,7 +93,7 @@ public class BulletSpawner : MonoBehaviour {
 
 		_onShootCooldown = false;
 
-		yield return null;
+		yield break;
 	}
 
 #if UNITY_EDITOR
