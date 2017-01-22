@@ -130,7 +130,9 @@ public class AIBrain : MonoBehaviour {
 		//foreach (ActorController actor in teamToSearch)
 		for (int i = 0; i < teamToSearch.Count; ++i)
 		{
-			if (teamToSearch[i] == GetComponent<ActorController>()) {continue;}
+			if (teamToSearch[i] == null
+				|| teamToSearch[i] == GetComponent<ActorController>())
+			{continue;}
 
 			float dist = Vector3.SqrMagnitude(teamToSearch[i].transform.position - transform.position);
 			if (dist < shortestDist)

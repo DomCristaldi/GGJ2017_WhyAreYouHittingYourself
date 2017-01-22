@@ -48,6 +48,11 @@ public class EnemyController : ActorController {
 	{
 		base.HandleDeath();
 
+		if (TeamManager.instance != null)
+		{
+			++TeamManager.instance.totalCasualties;
+		}
+
 		Destroy(gameObject);
 	}
 

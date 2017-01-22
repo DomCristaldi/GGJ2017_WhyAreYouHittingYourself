@@ -13,6 +13,7 @@ public class TeamManager : MonoBehaviour {
 		}
 	}
 
+	public int totalCasualties = 0;
 
 	public List<ActorController> playerTeam;
 	public List<ActorController> enemyTeam;
