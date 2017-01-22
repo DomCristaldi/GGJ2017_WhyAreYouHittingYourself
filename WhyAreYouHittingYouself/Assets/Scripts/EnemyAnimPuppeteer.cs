@@ -41,6 +41,8 @@ public class EnemyAnimPuppeteer : AnimationPuppeteer {
 
 		PreventMeshRotation();
 		SetArmRotation();
+		HandleFlippingSprite();
+		
 
 		if (_stats.isDead) 
 		{
@@ -66,6 +68,8 @@ public class EnemyAnimPuppeteer : AnimationPuppeteer {
 	private void PreventMeshRotation()
 	{
 		animComp.transform.rotation = Quaternion.Euler(heldMeshRotation);
+
+
 	}
 
 	private void SetArmRotation()
@@ -86,5 +90,35 @@ public class EnemyAnimPuppeteer : AnimationPuppeteer {
 	private void SetAnim_AimMode(bool setting)
 	{
 		animComp.SetBool("Bool_IsShooting", setting);
+	}
+
+	private void HandleFlippingSprite()
+	{
+		Plane rightPlane = new Plane(Vector3.right, Vector3.zero);
+
+
+			if ((rightPlane.GetSide(transform.forward) && animComp.transform.localScale.x < 0.0f)
+			|| (!rightPlane.GetSide(transform.forward) && animComp.transform.localScale.x > 0.0f))
+			{
+				animComp.transform.localScale = new Vector3(-animComp.transform.localScale.x,
+				animComp.transform.localScale.y,
+				animComp.transform.localScale.z);
+			}
+			/*
+			animComp.transform.localRotation = transform.localRotation * Quaternion.Euler(90.0f, 
+													   		0.0f,
+													   		0.0f);
+															   */
+		
+
+
+		//if (Vector3.Dot(transform.forward, _brain.targetHeading.normalized) > 0.0f)
+		//{
+			/*
+			animComp.transform.rotation = Quaternion.Euler(Vector3.Dot(transform.forward, _brain.targetHeading.normalized) > 0.0f ?  90.0f : -90.0f, 
+													   		0.0f,
+													   		0.0f);
+															   */
+		//}
 	}
 }
