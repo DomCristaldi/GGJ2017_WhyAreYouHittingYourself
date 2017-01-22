@@ -60,6 +60,14 @@ public class BulletSpawner : MonoBehaviour {
 											   Quaternion.LookRotation(bulletHeading))
 								   as GameObject;
 		
+		if (GameManager.instance != null
+		 && GameManager.instance.playerRef != null)
+		{
+			spawnedBullet.transform.position = new Vector3(spawnedBullet.transform.position.x,
+														   GameManager.instance.playerRef.transform.position.y,
+														   spawnedBullet.transform.position.z);
+		}
+
 		//make the bullet fly off in the desired direction
 		spawnedBullet.GetComponent<Movement>().desireMoveDirection = bulletHeading;
 		//spawnedBullet.GetComponent<Bullet>().owningTeam = transform.root.GetComponent<TeamMember>().currentTeam;

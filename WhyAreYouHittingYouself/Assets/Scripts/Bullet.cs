@@ -20,9 +20,7 @@ public class Bullet : MonoBehaviour {
 	}
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("boom");
-
-        Stats otherStats = other.GetComponent<Stats>();
+        Stats otherStats = other.transform.root.GetComponent<Stats>();
         if (otherStats != null)
         {
             otherStats.ApplyDamage(damageAmount);

@@ -5,6 +5,9 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(MindControl))]
+[RequireComponent(typeof(AnimationPuppeteer))]
+[RequireComponent(typeof(InputController))]
+[RequireComponent(typeof(Movement))]
 public class PlayerController : ActorController {
 	
 	
@@ -16,6 +19,13 @@ public class PlayerController : ActorController {
 			return _mindControlComp;
 		}
 	}
+	
+	private AnimationPuppeteer _animPup;
+	public AnimationPuppeteer animPup{get{return _animPup;}}
+
+	private InputController _inputControl;
+
+	private Movement _mov;
 
 	public float normalTimeSpeed = 1.0f;
 	public float slowTimeSpeed = 0.2f;
@@ -40,6 +50,9 @@ public class PlayerController : ActorController {
 		base.Awake();
 
 		_mindControlComp = GetComponent<MindControl>();
+		_animPup = GetComponent<AnimationPuppeteer>();
+		_inputControl = GetComponent<InputController>();
+		_mov = GetComponent<Movement>();
 	}
 
 	// Use this for initialization
@@ -57,13 +70,27 @@ public class PlayerController : ActorController {
 		base.Update();
 
 		HandleInput();
+		
 		HandleSlomo();
 
+
+	}
+
+	protected override void HandleDeath()
+	{
+		base.HandleDeath();
+
+		_mov.desireMoveDirection = Vector3.zero;
+		animPup.SetDeathState(true);
 	}
 
 
 	private void HandleInput()
 	{
+
+		if (statsComp.currentHealth <= 0) {return;}
+
+		_inputControl.UpdateInput();
 
 	//POSSESSION
 		if (mindControlComp.enslaveTarget != null)
