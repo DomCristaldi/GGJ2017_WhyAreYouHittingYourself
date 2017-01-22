@@ -382,6 +382,11 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224198751755235538, guid: e922dcb1b2aa89944aa53157e8fbeab9,
     type: 2}
   m_PrefabInternal: {fileID: 1923017259}
+--- !u!1 &533426770 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1387354650315110, guid: e922dcb1b2aa89944aa53157e8fbeab9,
+    type: 2}
+  m_PrefabInternal: {fileID: 1923017259}
 --- !u!1 &692489535
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,6 +496,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6708dc56f59c7954dbc2d2282a62093f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panelGroups:
+  - panelType: 0
+    panels: []
+  - panelType: 1
+    panels:
+    - {fileID: 533426770}
+  - panelType: 2
+    panels: []
+  - panelType: 3
+    panels: []
 --- !u!224 &711253404 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224187625316507410, guid: 41307bb64ab33d74baa8e1d84cd91d4b,
@@ -652,22 +667,22 @@ Prefab:
     - target: {fileID: 224375040374682570, guid: a8631d334c572f044b8798a1e220d53b,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224375040374682570, guid: a8631d334c572f044b8798a1e220d53b,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224259723379507056, guid: a8631d334c572f044b8798a1e220d53b,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 0.32
       objectReference: {fileID: 0}
     - target: {fileID: 224259723379507056, guid: a8631d334c572f044b8798a1e220d53b,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a8631d334c572f044b8798a1e220d53b, type: 2}
@@ -1148,6 +1163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRef: {fileID: 0}
+  currentGameStatus: 0
   timeCoefficient: 1
 --- !u!1001 &1668476233
 Prefab:
@@ -1245,11 +1261,6 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224687748573002972, guid: 6ff34c4cf2a90a84aae4e8c28cd9a27f,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.10000229
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ff34c4cf2a90a84aae4e8c28cd9a27f, type: 2}

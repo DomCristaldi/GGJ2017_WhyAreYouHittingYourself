@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
+	public enum GameStatus
+	{
+		Gameplay = 0,
+		Death = 1,
+		Paused = 2,
+		Controls = 3,
+	}
+
 	private static GameManager _instance;
 	public static GameManager instance
 	{
@@ -19,6 +27,8 @@ public class GameManager : MonoBehaviour {
 			return instance != null && instance.playerRef != null;
 		}
 	}
+
+	public GameStatus currentGameStatus = GameStatus.Gameplay;
 
 	[SerializeField]
 	private float timeCoefficient = 1.0f;
