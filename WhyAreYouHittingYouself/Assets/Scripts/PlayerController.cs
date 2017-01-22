@@ -17,9 +17,22 @@ public class PlayerController : ActorController {
 		}
 	}
 
+	public float normalTimeSpeed = 1.0f;
+	public float slowTimeSpeed = 0.2f;
+
+	public float slomoEnergy = 3.0f;
+	public float maxSlomoEnergy = 3.0f;
+	private bool _isInSlomo = false;
+	public bool isInSlomo{get{return _isInSlomo;}}
+
+
+	[Header("Input")]
     public KeyCode PossessTargetKey = KeyCode.Mouse0;
     public KeyCode ReleasePossessionKey = KeyCode.Mouse1;
 
+	public KeyCode SlowDownTime = KeyCode.Space;
+
+	[Space]
 	public UnityEvent FailedtoMindControlEvent;
 
 	protected override void Awake()
@@ -44,11 +57,15 @@ public class PlayerController : ActorController {
 		base.Update();
 
 		HandleInput();
+		HandleSlomo();
+
 	}
 
 
 	private void HandleInput()
 	{
+
+	//POSSESSION
 		if (mindControlComp.enslaveTarget != null)
 		{
 			//ATTEMPT TARGET POSSESSION
@@ -68,7 +85,7 @@ public class PlayerController : ActorController {
 					Debug.Log("Failed Mind Control");
 				}
 			}
-			//RELEASE TARGET FROM POSSESSION
+		//RELEASE TARGET FROM POSSESSION
 			if (Input.GetKeyDown(ReleasePossessionKey)									//key was hit
 			 && mindControlComp.enslaveTarget.teamMemberComp.currentTeam == teamMemberComp.currentTeam //it's on our team
 			 && mindControlComp.enslaveTarget.teamMemberComp.isCurrentlyEnslaved)						//and we're currently enslaving it
@@ -77,5 +94,39 @@ public class PlayerController : ActorController {
 														 mindControlComp.enslaveTarget);//then we can release it
 			}
 		}
+
+		//SLOW DOWN TIME
+			if (Input.GetKeyDown(SlowDownTime))
+			{
+				EnterSlomo();
+			}
+			if (Input.GetKeyUp(SlowDownTime))
+			{
+				ExitSlomo();
+			}
+	}
+
+	private void HandleSlomo()
+	{
+		slomoEnergy = Mathf.Clamp(isInSlomo ? slomoEnergy - Time.unscaledDeltaTime
+											: slomoEnergy + Time.unscaledDeltaTime,
+								  0.0f,
+								  maxSlomoEnergy);
+
+		if (slomoEnergy <= 0.0f)
+		{
+			ExitSlomo();
+		}
+	}
+	private void EnterSlomo()
+	{
+		GameManager.instance.SetTimeCoefficient(slowTimeSpeed);
+		_isInSlomo = true;
+	}
+
+	private void ExitSlomo()
+	{
+		GameManager.instance.SetTimeCoefficient(normalTimeSpeed);
+		_isInSlomo = false;
 	}
 }

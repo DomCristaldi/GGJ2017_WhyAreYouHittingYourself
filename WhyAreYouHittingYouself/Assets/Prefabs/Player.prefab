@@ -182,8 +182,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ec3fa5f0938a9f418096f6f3d636596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normalTimeSpeed: 1
+  slowTimeSpeed: 0.2
+  slomoEnergy: 1.5
+  maxSlomoEnergy: 1.5
   PossessTargetKey: 323
   ReleasePossessionKey: 324
+  SlowDownTime: 32
   FailedtoMindControlEvent:
     m_PersistentCalls:
       m_Calls: []
