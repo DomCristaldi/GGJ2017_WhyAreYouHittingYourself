@@ -11,44 +11,26 @@ public class Stats : MonoBehaviour {
 
 	public int brainTax = 1;
 
-	public int healthState;
+	public int currentHealth;
 	public int maxHealth;
 	public int minHealth;
-	public int damagePoint;
 	public int brainWaveRadius;
-	public bool death;
 
 	void Start () {
 
 	}
 	void Update () {
-		//damagePoint = 
+
+	}
+	
+
+	public void ApplyDamage(int amountOfDamage)
+	{
+		currentHealth = Mathf.Clamp(currentHealth - amountOfDamage,
+									minHealth,
+									maxHealth);
 	}
 
-	void OnTriggerEnter(Collider other){
-		Damage otherDamageScript = other.gameObject.GetComponent<Damage>();
-		if(otherDamageScript!=null){
-			healthState-=otherDamageScript.damageAmount;
-		}
-	}
-
-	void Health(){
-		healthState=healthState-damagePoint;
-		if (healthState>maxHealth){
-			healthState=maxHealth;
-		}else if(healthState<=minHealth){
-			healthState=minHealth;
-			death=true;
-			Destroy(gameObject);
-		}
-	}
-	void Power(){
-		if (brainPower>maxPower){
-			brainPower=maxPower;
-		}else if(brainPower<minPower){
-			brainPower=minPower;
-		}
-	}
 
 	private void ChangeBrainPower(int delta)
 	{

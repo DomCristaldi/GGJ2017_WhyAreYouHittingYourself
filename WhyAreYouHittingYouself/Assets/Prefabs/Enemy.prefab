@@ -64,6 +64,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1694195885282472
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4233309075185158}
+  - component: {fileID: 114543573589918468}
+  m_Layer: 8
+  m_Name: BulletSpawnOrigin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4233309075185158
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1694195885282472}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4251718505154390}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4251718505154390
 Transform:
   m_ObjectHideFlags: 1
@@ -71,9 +100,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1100003876547150}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.012, y: 0.29, z: -1.783}
+  m_LocalPosition: {x: 1.11, y: 0.29, z: -2.61}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4233309075185158}
   - {fileID: 4712332976818636}
   - {fileID: 4827964936183078}
   m_Father: {fileID: 0}
@@ -90,7 +120,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4251718505154390}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &4827964936183078
 Transform:
@@ -103,7 +133,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4251718505154390}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &54734009031930398
 Rigidbody:
@@ -131,7 +161,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 789c1cf5e7cd6a44b90b83882188c9e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletSpawnerRef: {fileID: 114543573589918468}
   targetTransform: {fileID: 0}
+  shootRange: 5
+  shootAngle: 0.1
+--- !u!114 &114543573589918468
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1694195885282472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b1280d92cd087744b4be567dbd08cff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 1344869738348370, guid: 02da6fdc92e49f0408402dba7a1e465c,
+    type: 2}
+  shootRange: 3.58
+  shootAngle: 0.1
+  g_shootRangeColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &114615857459077634
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -158,6 +207,7 @@ MonoBehaviour:
   brainPower: 0
   maxPower: 0
   minPower: 0
+  brainTax: 1
   healthState: 10
   maxHealth: 10
   minHealth: 0

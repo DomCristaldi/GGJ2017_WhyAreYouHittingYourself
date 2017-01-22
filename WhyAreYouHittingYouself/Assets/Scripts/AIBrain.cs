@@ -8,12 +8,22 @@ using UnityEngine.AI;
 [RequireComponent(typeof(TeamMember))]
 public class AIBrain : MonoBehaviour {
 
+	public BulletSpawner bulletSpawnerRef;
+
 	private NavMeshAgent _navAgentComp;
 	private NavMeshAgent navAgentComp{get{return _navAgentComp;}}
 	private TeamMember _teamMemberComp;
 	public TeamMember teamMemberComp{get {return _teamMemberComp;}}
 
+	[Space]
+	[Header("Follow Settings")]
 	public Transform targetTransform;
+
+	[Space]
+	[Header("Shoot Settings")]
+	public float shootRange = 5.0f;
+	public float shootAngle = 0.1f;
+
 
 	void Awake()
 	{
@@ -37,6 +47,35 @@ public class AIBrain : MonoBehaviour {
 		{
 			TargetClosestEnemy();
 		}
+
+		//Debug.LogFormat("Can Shoot: {0}", CheckCanAttack());
+		if (CheckCanAttack())
+		{
+			bulletSpawnerRef.FireBullet(transform.forward);
+		}
+	}
+
+	public bool CheckCanAttack()
+	{
+		//sanity check
+		if (targetTransform == null) {return false;}
+
+		Vector3 planarHeading = Vector3.Normalize(
+									Vector3.ProjectOnPlane(targetTransform.position - transform.position,
+														   Vector3.up)
+												 );
+		Debug.DrawRay(transform.position, planarHeading * shootRange * 2.0f, Color.blue);
+		Debug.DrawRay(transform.position, transform.forward * shootRange * 2.0f, Color.green);
+
+		//checking with squares is faster
+		if (Vector3.SqrMagnitude(planarHeading) <= Mathf.Pow(shootRange, 2.0f)
+		 && (1.0f - Vector3.Dot(planarHeading, transform.forward)) <= shootAngle)
+		{
+			return true;
+		}
+
+		//failed all checks, return false
+		return false;
 	}
 
 	public ActorController FindClosestMemberOfTeam(TeamMember.Team targetTeam)
@@ -84,7 +123,16 @@ public class AIBrain : MonoBehaviour {
 	}
 
 	public void TargetClosestEnemy() {
-		targetTransform = FindClosestEnemy().transform;
+		ActorController closestEnemy = FindClosestEnemy();
+		if (closestEnemy != null)
+		{
+			targetTransform = closestEnemy.transform;
+		}
+		else
+		{
+			targetTransform = null;
+		}
+		//targetTransform = FindClosestEnemy().transform;
 	}
 
 }

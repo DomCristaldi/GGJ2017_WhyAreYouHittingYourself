@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour {
         {
             EndGame_PlayerWins();
         }
-        if (playerRef.statsComp.healthState ==0)
+        if (playerRef.statsComp.currentHealth == 0)
         {
             EndGame_PlayerLoses();
         }

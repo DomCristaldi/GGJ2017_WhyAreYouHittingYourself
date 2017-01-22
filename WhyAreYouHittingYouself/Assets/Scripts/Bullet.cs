@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
 
+    public int damageAmount;
 
 	// Use this for initialization
 	void Start () {
@@ -15,17 +16,11 @@ public class Bullet : MonoBehaviour {
 	}
     void OnTriggerEnter(Collider other)
     {
-        /*
-        if (other.tag == "Player")
+        Stats otherStats = other.GetComponent<Stats>();
+        if (otherStats != null)
         {
-            Destroy(other.gameObject);
-            Destroy(gameObject);
+            otherStats.ApplyDamage(damageAmount);
         }
-        else
-        {
-            Debug.Log(other.tag);
-            Destroy(gameObject);
-        }
-        */
+        
     }
 }
