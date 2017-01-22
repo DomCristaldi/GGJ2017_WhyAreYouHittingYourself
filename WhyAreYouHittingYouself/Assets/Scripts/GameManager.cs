@@ -1,6 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
+[System.Serializable]
+public class UnityEvent_SingleBool : UnityEvent<bool>{}
 
 public class GameManager : MonoBehaviour {
 
@@ -11,6 +15,10 @@ public class GameManager : MonoBehaviour {
 		Paused = 2,
 		Controls = 3,
 	}
+
+	public bool controlsAreUp = false;
+	public bool isPaused = false;
+	public UnityEvent_SingleBool pauseGameEvent;
 
 	private static GameManager _instance;
 	public static GameManager instance
@@ -28,6 +36,13 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
+	//INPUTS
+	[HeaderAttribute("Game Specific Input")]
+	public KeyCode pauseGameButton = KeyCode.Escape;
+	public KeyCode gameControlsButton = KeyCode.F1;
+
+	[SpaceAttribute]
+	[HeaderAttribute("Gameplay Numbers")]
 	public GameStatus currentGameStatus = GameStatus.Gameplay;
 
 	[SerializeField]
@@ -45,6 +60,8 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		HandleInput();
+
         int enemyTeamSize = TeamManager.instance.enemyTeam.Count;
 
         if (enemyTeamSize == 0)
@@ -76,4 +93,57 @@ public class GameManager : MonoBehaviour {
 	{
         
 	}
+
+	public void SetIsPausedFalse()
+	{
+		//SetIsPaused(false);
+		SetTimeCoefficient(1.0f);
+		pauseGameEvent.Invoke(false);
+	}
+
+	public void HandleInput()
+	{	
+
+		if (Input.GetKeyDown(pauseGameButton))
+		{
+			isPaused = !isPaused;
+
+			pauseGameEvent.Invoke(isPaused);
+
+			if (!isPaused)
+			{
+				SetTimeCoefficient(1.0f);
+			}
+			else {SetTimeCoefficient(0.0f);}
+		}
+
+		/*
+		//HACK: This should be a State Machine
+
+		if (Input.GetKeyDown(gameControlsButton))
+		{
+			//if ()
+		}
+
+		//if it's in Gameplay and the player is alive, pause it. 
+		if (Input.GetKeyDown(pauseGameButton))
+		{
+			if (currentGameStatus == GameStatus.Gameplay)
+			if (canGetPlayer)
+			{
+				if (playerRef.statsComp.isAlive)
+				{
+					timeCoefficient = 0.0f;	//HACK: Should be a number settable from inspector
+				}
+			}
+			//no player was found, we'll pause it anyway
+			else
+			{
+				timeCoefficient = 1.0f;
+			}
+		}
+		*/
+	}
+
+
 }

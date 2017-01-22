@@ -91,6 +91,11 @@ NavMeshSettings:
     cellSize: 0.16666667
     accuratePlacement: 0
   m_NavMeshData: {fileID: 23800000, guid: b63b6fd4ebfc60f42bbd243cfcfe1ec6, type: 2}
+--- !u!1 &10876715 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1609280216849332, guid: 41307bb64ab33d74baa8e1d84cd91d4b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1589641083}
 --- !u!1001 &59641563
 Prefab:
   m_ObjectHideFlags: 0
@@ -98,6 +103,21 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 692489539}
     m_Modifications:
+    - target: {fileID: 114867217921922712, guid: c398d41d17040224db7bd974a0986af2,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602552418158662, guid: c398d41d17040224db7bd974a0986af2,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114439609867288686, guid: c398d41d17040224db7bd974a0986af2,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 224602762805253520, guid: c398d41d17040224db7bd974a0986af2,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -191,6 +211,61 @@ Prefab:
     - target: {fileID: 1485909782375232, guid: c398d41d17040224db7bd974a0986af2, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114867217921922712, guid: c398d41d17040224db7bd974a0986af2,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114867217921922712, guid: c398d41d17040224db7bd974a0986af2,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114867217921922712, guid: c398d41d17040224db7bd974a0986af2,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1638532717}
+    - target: {fileID: 114602552418158662, guid: c398d41d17040224db7bd974a0986af2,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114602552418158662, guid: c398d41d17040224db7bd974a0986af2,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114439609867288686, guid: c398d41d17040224db7bd974a0986af2,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114439609867288686, guid: c398d41d17040224db7bd974a0986af2,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114867217921922712, guid: c398d41d17040224db7bd974a0986af2,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114867217921922712, guid: c398d41d17040224db7bd974a0986af2,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114867217921922712, guid: c398d41d17040224db7bd974a0986af2,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetIsPausedFalse
+      objectReference: {fileID: 0}
+    - target: {fileID: 114867217921922712, guid: c398d41d17040224db7bd974a0986af2,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c398d41d17040224db7bd974a0986af2, type: 2}
@@ -496,6 +571,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6708dc56f59c7954dbc2d2282a62093f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pausedPanel:
+    panelType: 0
+    panels:
+    - {fileID: 1142821458}
+  activePanelGroup:
+    panelType: 0
+    panels: []
   panelGroups:
   - panelType: 0
     panels: []
@@ -503,9 +585,11 @@ MonoBehaviour:
     panels:
     - {fileID: 533426770}
   - panelType: 2
-    panels: []
+    panels:
+    - {fileID: 1142821458}
   - panelType: 3
-    panels: []
+    panels:
+    - {fileID: 10876715}
 --- !u!224 &711253404 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224187625316507410, guid: 41307bb64ab33d74baa8e1d84cd91d4b,
@@ -776,6 +860,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 02da6fdc92e49f0408402dba7a1e465c, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1142821458 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1485909782375232, guid: c398d41d17040224db7bd974a0986af2,
+    type: 2}
+  m_PrefabInternal: {fileID: 59641563}
 --- !u!1001 &1246699770
 Prefab:
   m_ObjectHideFlags: 0
@@ -1162,7 +1251,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb4273489e89ceb41a6a9d45b570668d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controlsAreUp: 0
+  isPaused: 0
+  pauseGameEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 692489540}
+        m_MethodName: SetIsPaused
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEvent_SingleBool, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   playerRef: {fileID: 0}
+  pauseGameButton: 27
+  gameControlsButton: 282
   currentGameStatus: 0
   timeCoefficient: 1
 --- !u!1001 &1668476233

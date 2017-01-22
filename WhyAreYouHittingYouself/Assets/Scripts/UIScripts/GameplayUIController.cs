@@ -9,19 +9,6 @@ public class GameplayUIController : MonoBehaviour {
 	[System.Serializable]
 	public class UIPanelGroup
 	{
-		
-		/*
-		public enum PanelType
-		{
-			None = 0,
-			Death = 1,
-			Controls = 2,
-			Pause = 3,
-		}
-		
-
-		public PanelType panelType;
-		*/
 		public GameManager.GameStatus panelType;
 		public GameObject[] panels;
 
@@ -35,6 +22,10 @@ public class GameplayUIController : MonoBehaviour {
 		
 	}
 
+	public UIPanelGroup pausedPanel;
+
+	public UIPanelGroup activePanelGroup;
+
 	public List<UIPanelGroup> panelGroups;
 
 	// Use this for initialization
@@ -44,7 +35,19 @@ public class GameplayUIController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
+		//HACK: This really shouldn't be polling constantly, just subscribe to an event from the Gameplay Manager
+		if (GameManager.instance != null)
+		{
+
+
+			/*
+			if (activePanelGroup.panelType != GameManager.instance.currentGameStatus)
+			{
+				SetActivePanelGroup(GameManager.instance.currentGameStatus);
+			}
+			*/
+		}
 	}
 
 	public void SetActivePanelGroup(GameManager.GameStatus panelType)
@@ -54,6 +57,7 @@ public class GameplayUIController : MonoBehaviour {
 			if (pg.panelType == panelType)
 			{
 				pg.SetActiveStatus(true);
+				activePanelGroup = pg;
 			}
 			else
 			{
@@ -61,4 +65,10 @@ public class GameplayUIController : MonoBehaviour {
 			}
 		}
 	}
+
+	public void SetIsPaused(bool pausedStatus)
+	{
+		pausedPanel.SetActiveStatus(pausedStatus);
+	}
+
 }
