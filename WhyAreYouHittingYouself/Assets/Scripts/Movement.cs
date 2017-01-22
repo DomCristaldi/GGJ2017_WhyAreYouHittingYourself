@@ -15,6 +15,9 @@ public class Movement : MonoBehaviour {
     public Vector3 trueMoveDirection;
     public Vector3 desireMoveDirection;
 
+    public float acceleration = 2.0f;
+    public AnimationCurve redirectionSpeedRamp;
+
     public float currentHorrizontalSpeed
     {
         get {
@@ -43,7 +46,7 @@ public class Movement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        trueMoveDirection = trueMoveDirection.normalized;
+        //trueMoveDirection = trueMoveDirection.normalized;
         desireMoveDirection = desireMoveDirection.normalized;
 
         rigBod.velocity = new Vector3(
@@ -62,6 +65,11 @@ public class Movement : MonoBehaviour {
         */
 
         trueMoveDirection = desireMoveDirection;
+/*
+        trueMoveDirection = Vector3.MoveTowards(trueMoveDirection,
+                                                desireMoveDirection,
+                                                redirectionSpeedRamp.Evaluate(trueMoveDirection.magnitude) * Time.deltaTime);
+*/
 	}
 }
 

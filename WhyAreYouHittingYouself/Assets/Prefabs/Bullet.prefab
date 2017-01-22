@@ -158,6 +158,13 @@ MonoBehaviour:
   speed: 7.5
   trueMoveDirection: {x: 0, y: 0, z: 0}
   desireMoveDirection: {x: 0, y: 0, z: 0}
+  acceleration: 2
+  redirectionSpeedRamp:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!135 &135881925909849962
 SphereCollider:
   m_ObjectHideFlags: 1

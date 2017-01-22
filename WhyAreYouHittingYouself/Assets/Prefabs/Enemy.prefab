@@ -87,7 +87,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1694195885282472}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.657}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4251718505154390}
@@ -163,6 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpawnerRef: {fileID: 114543573589918468}
   targetTransform: {fileID: 0}
+  onlyShootAtStoppingDistance: 1
   shootRange: 5
   shootAngle: 0.1
 --- !u!114 &114543573589918468
@@ -180,6 +181,7 @@ MonoBehaviour:
     type: 2}
   shootRange: 3.58
   shootAngle: 0.1
+  fireRate: 1
   g_shootRangeColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &114615857459077634
 MonoBehaviour:
@@ -208,12 +210,10 @@ MonoBehaviour:
   maxPower: 0
   minPower: 0
   brainTax: 1
-  healthState: 10
+  currentHealth: 0
   maxHealth: 10
   minHealth: 0
-  damagePoint: 5
   brainWaveRadius: 0
-  death: 0
 --- !u!114 &114887281315044412
 MonoBehaviour:
   m_ObjectHideFlags: 1
