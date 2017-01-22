@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4607022642221228}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4000789580687500}
   - component: {fileID: 212005260870012628}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 65500800481883874}
   - component: {fileID: 23822581399965062}
   - component: {fileID: 33233754971856156}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collisions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,8 +67,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1416779808983316}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.1853547, y: 2.1853547, z: 2.1853547}
+  m_LocalPosition: {x: 0.88, y: 0, z: 0.64}
+  m_LocalScale: {x: 4.1597285, y: 4.1597285, z: 4.1597285}
   m_Children: []
   m_Father: {fileID: 4607022642221228}
   m_RootOrder: 0
@@ -80,8 +80,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1501171504779676}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.063}
-  m_LocalScale: {x: 1, y: 7.4245753, z: 0.8144288}
+  m_LocalPosition: {x: 0.84, y: 0, z: 0.62}
+  m_LocalScale: {x: 2.683007, y: 2.2932336, z: 2.185117}
   m_Children: []
   m_Father: {fileID: 4607022642221228}
   m_RootOrder: 1
@@ -93,7 +93,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1246383103260350}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.05, y: -3.96, z: 1.75}
+  m_LocalPosition: {x: 2.05, y: -3.96, z: 3.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4000789580687500}

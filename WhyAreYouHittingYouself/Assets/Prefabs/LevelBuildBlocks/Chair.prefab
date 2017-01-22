@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4349204186488760}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Chair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 65171166954009174}
   - component: {fileID: 23903930445057248}
   - component: {fileID: 33224130258754424}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collisions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4299233160740894}
   - component: {fileID: 212911509374076832}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67,8 +67,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1555070081783800}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0, z: 0}
-  m_LocalScale: {x: 1.2737621, y: 1.2737621, z: 1.2737621}
+  m_LocalPosition: {x: -0.506, y: -0, z: 0.694}
+  m_LocalScale: {x: 2.622257, y: 2.622257, z: 2.622257}
   m_Children: []
   m_Father: {fileID: 4349204186488760}
   m_RootOrder: 0
@@ -80,7 +80,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1476019699157904}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.76, y: -3.96, z: 1.494}
+  m_LocalPosition: {x: 1.67, y: -3.96, z: 4.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4299233160740894}
@@ -95,8 +95,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1514655550371540}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5289698, y: 7.1578183, z: 1.0168312}
+  m_LocalPosition: {x: -0.428, y: 0, z: 0.822}
+  m_LocalScale: {x: 1.3844683, y: 1.3386458, z: 2.6613424}
   m_Children: []
   m_Father: {fileID: 4349204186488760}
   m_RootOrder: 1
