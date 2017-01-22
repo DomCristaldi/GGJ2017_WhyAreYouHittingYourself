@@ -326,8 +326,8 @@ MonoBehaviour:
   onlyShootAtStoppingDistance: 1
   shootRange: 5
   shootAngle: 0.1
-  lineUpShotTime: 0.3
-  shootRecoveryTime: 0.5
+  lineUpShotTime: 1
+  shootRecoveryTime: 2
 --- !u!114 &114543573589918468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -372,6 +372,8 @@ MonoBehaviour:
   animComp: {fileID: 95376486349457720}
   armSpriteRen: {fileID: 212871889834077190}
   deathBool: Bool_IsDead
+  idleSprite: {fileID: 0}
+  shootingSprite: {fileID: 0}
   heldMeshRotation: {x: 90, y: 0, z: 0}
   armPivotPoint: {fileID: 4444990525563070}
   armRotSpeed: 0.75
@@ -430,7 +432,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1.5
+  m_StoppingDistance: 2.97
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1

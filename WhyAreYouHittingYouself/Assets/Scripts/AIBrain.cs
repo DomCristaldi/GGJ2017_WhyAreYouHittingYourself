@@ -4,11 +4,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(Stats))]
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(TeamMember))]
 public class AIBrain : MonoBehaviour {
 
 	public BulletSpawner bulletSpawnerRef;
+
+
+	private Stats _stats;
 
 	private NavMeshAgent _navAgentComp;
 	private NavMeshAgent navAgentComp{get{return _navAgentComp;}}
@@ -51,6 +55,7 @@ public class AIBrain : MonoBehaviour {
 
 	void Awake()
 	{
+		_stats = GetComponent<Stats>();
 		_navAgentComp = GetComponent<NavMeshAgent>();
 		_teamMemberComp = GetComponent<TeamMember>();
 	}
@@ -108,6 +113,7 @@ public class AIBrain : MonoBehaviour {
 	public bool CheckCanAttack()
 	{
 		//sanity check
+		if (_stats.isDead) {return false;}
 		if (targetTransform == null) {return false;}
 		if (canShoot) {return false;}
 		if (TeamManager.instance.enemyTeam.Count == 0) {return false;}
@@ -150,6 +156,7 @@ public class AIBrain : MonoBehaviour {
 
 		yield return new WaitForSeconds(timeToLineUpShot);
 
+		if (_stats.isDead) {yield break;}
 		bulletSpawnerRef.FireBullet(transform.forward);
 
 		_navAgentComp.Resume();

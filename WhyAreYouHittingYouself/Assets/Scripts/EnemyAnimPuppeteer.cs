@@ -11,9 +11,9 @@ public class EnemyAnimPuppeteer : AnimationPuppeteer {
 
 	private Stats _stats;
 
-	public Sprite IdleSprite;
-	public Sprite ShootingSprite;
-
+	public Sprite idleSprite;
+	public Sprite shootingSprite;
+	
 	public Vector3 heldMeshRotation;
 	
 	public Transform armPivotPoint;
@@ -48,7 +48,10 @@ public class EnemyAnimPuppeteer : AnimationPuppeteer {
 		}
 		else 
 		{
-			if (_brain.canShoot)
+			//we need to transition to the correct anim
+			SetAnim_AimMode(_brain.isShooting);
+
+			if (_brain.isShooting)
 			{
 				armSpriteRen.enabled = true;
 			}
@@ -56,6 +59,8 @@ public class EnemyAnimPuppeteer : AnimationPuppeteer {
 				armSpriteRen.enabled = false;
 			}
 		}
+
+		//if (_brain.isShooting)
 	}
 
 	private void PreventMeshRotation()
@@ -76,5 +81,10 @@ public class EnemyAnimPuppeteer : AnimationPuppeteer {
 		newArmForward = newArmForward.normalized;
 
 		armPivotPoint.rotation = Quaternion.LookRotation(newArmForward, Vector3.up);
+	}
+
+	private void SetAnim_AimMode(bool setting)
+	{
+		animComp.SetBool("Bool_IsShooting", setting);
 	}
 }
