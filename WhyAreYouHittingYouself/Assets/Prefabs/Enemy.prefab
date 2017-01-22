@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114347148235955002}
   - component: {fileID: 195054199899905098}
   - component: {fileID: 114649037456144204}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4648846569070516}
   - component: {fileID: 212871889834077190}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ArmSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4827964936183078}
   - component: {fileID: 136431710346740220}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Collisions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 4107781386161418}
   - component: {fileID: 212887185396044544}
   - component: {fileID: 95376486349457720}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyMesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 4233309075185158}
   - component: {fileID: 114543573589918468}
   - component: {fileID: 82569707984948480}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BulletSpawnOrigin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4444990525563070}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ArmPivotPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,8 +326,8 @@ MonoBehaviour:
   onlyShootAtStoppingDistance: 1
   shootRange: 5
   shootAngle: 0.1
-  lineUpShotTime: 0.1
-  shootRecoveryTime: 0.2
+  lineUpShotTime: 0.3
+  shootRecoveryTime: 0.5
 --- !u!114 &114543573589918468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -370,6 +370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animComp: {fileID: 95376486349457720}
+  armSpriteRen: {fileID: 212871889834077190}
   deathBool: Bool_IsDead
   heldMeshRotation: {x: 90, y: 0, z: 0}
   armPivotPoint: {fileID: 4444990525563070}

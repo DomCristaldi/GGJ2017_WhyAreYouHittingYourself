@@ -14,6 +14,9 @@ public class AIBrain : MonoBehaviour {
 	private NavMeshAgent navAgentComp{get{return _navAgentComp;}}
 	private TeamMember _teamMemberComp;
 	public TeamMember teamMemberComp{get {return _teamMemberComp;}}
+	
+	private bool _isShooting = false;
+	public bool isShooting {get{return _isShooting;}}
 
 	[Space]
 	[Header("Follow Settings")]
@@ -57,6 +60,13 @@ public class AIBrain : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		if (TeamManager.instance != null
+		&& TeamManager.instance.enemyTeam.Count == 0)
+		{
+			this.enabled = false;
+			return;
+		}
+
 		RotateTowardsTarget();
 
 		if (targetTransform != null)
@@ -75,6 +85,7 @@ public class AIBrain : MonoBehaviour {
 		{
 			StartCoroutine(AttemptAttackRoutine(lineUpShotTime));
 		}
+
 	}
 
 	private void RotateTowardsTarget()
@@ -95,6 +106,8 @@ public class AIBrain : MonoBehaviour {
 	{
 		//sanity check
 		if (targetTransform == null) {return false;}
+		if (isShooting) {return false;}
+		if (TeamManager.instance.enemyTeam.Count == 0) {return false;}
 
 /*
 		if (onlyShootAtStoppingDistance
@@ -129,14 +142,18 @@ public class AIBrain : MonoBehaviour {
 		//_navAgentComp.speed = 0.0f;
 		
 		_navAgentComp.Stop();
+		_isShooting = true;
 
 		yield return new WaitForSeconds(timeToLineUpShot);
 
 		bulletSpawnerRef.FireBullet(transform.forward);
 
+		_navAgentComp.Resume();
+
+
 		yield return new WaitForSeconds(shootRecoveryTime);
 
-		_navAgentComp.Resume();
+		_isShooting = false;
 
 		//_navAgentComp.speed = oldSpeed;
 		yield break;

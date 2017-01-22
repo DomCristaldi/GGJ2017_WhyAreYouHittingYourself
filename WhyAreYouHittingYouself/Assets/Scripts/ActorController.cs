@@ -12,6 +12,8 @@ public class ActorController : MonoBehaviour {
 		get {return _statsComp;}
 	}
 
+	private bool _deathLock = false;
+
 	protected TeamMember _teamMemberComp;
 	public TeamMember teamMemberComp
 	{
@@ -40,11 +42,14 @@ public class ActorController : MonoBehaviour {
 
 	// Update is called once per frame
 	protected virtual void Update () {
-		if (statsComp.isDead) {HandleDeath();}
+		if (statsComp.isDead && !_deathLock) {
+			HandleDeath();
+			//_deathLock = true;
+		}
 	}
 
 	protected virtual void HandleDeath()
 	{
-
+		//if (_statsComp.isDead) {return;}
 	}
 }

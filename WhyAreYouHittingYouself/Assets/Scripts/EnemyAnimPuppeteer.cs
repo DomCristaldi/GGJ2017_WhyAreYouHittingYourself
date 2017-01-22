@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(AIBrain))]
+[RequireComponent(typeof(Stats))]
 public class EnemyAnimPuppeteer : AnimationPuppeteer {
 
 	private AIBrain _brain;
+
+	private Stats _stats;
 
 	public Vector3 heldMeshRotation;
 	
@@ -17,6 +20,7 @@ public class EnemyAnimPuppeteer : AnimationPuppeteer {
 	protected override void Awake()
 	{
 		_brain = GetComponent<AIBrain>();
+		_stats = GetComponent<Stats>();
 	}
 
 	protected override void Start ()
@@ -33,6 +37,21 @@ public class EnemyAnimPuppeteer : AnimationPuppeteer {
 
 		PreventMeshRotation();
 		SetArmRotation();
+
+		if (_stats.isDead) 
+		{
+			armSpriteRen.enabled = false;
+		}
+		else 
+		{
+			if (_brain.isShooting)
+			{
+				armSpriteRen.enabled = true;
+			}
+			else {
+				armSpriteRen.enabled = false;
+			}
+		}
 	}
 
 	private void PreventMeshRotation()

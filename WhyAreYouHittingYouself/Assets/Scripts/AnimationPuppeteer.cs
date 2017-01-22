@@ -5,6 +5,8 @@ using UnityEngine;
 public class AnimationPuppeteer : MonoBehaviour {
 
 	public Animator animComp;
+	public SpriteRenderer armSpriteRen;
+
 
 	public string deathBool = "Bool_IsDead";
 

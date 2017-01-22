@@ -46,13 +46,14 @@ public class BulletSpawner : MonoBehaviour {
 		if (onShootCooldown) {return;}
 
 		//normalize just in case to avoid any chance of data corruption
-		bulletHeading = bulletHeading.normalized;
+		//bulletHeading = bulletHeading.normalized;
+		bulletHeading = transform.rotation * Vector3.forward;
 
 		//create the bullet and store a reference to it
 		GameObject spawnedBullet = Instantiate(bulletPrefab,
 											   transform.position,
-											   transform.rotation)
-											   //Quaternion.LookRotation(bulletHeading))
+											   //transform.rotation)
+											   Quaternion.LookRotation(bulletHeading))
 								   as GameObject;
 		
 		if (GameManager.instance != null
