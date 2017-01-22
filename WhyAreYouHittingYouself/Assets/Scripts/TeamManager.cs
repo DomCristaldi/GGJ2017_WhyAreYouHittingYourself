@@ -52,25 +52,25 @@ public class TeamManager : MonoBehaviour {
 
 	public void AddToTeam(TeamMember.Team newTeam, params ActorController[] membersToAdd)
 	{
-		Debug.LogFormat("Adding {0} members to team", membersToAdd.Length);
+		//Debug.LogFormat("Adding {0} members to team", membersToAdd.Length);
 
 		foreach (ActorController actor in membersToAdd) 
 		{
-			Debug.Log("performing action on member");
+			//Debug.Log("performing action on member");
 
 			//if (member.currentTeam != newTeam) //only do work if it's a differnt team
 			//{
 				switch (newTeam)
 				{
 					case TeamMember.Team.Player:	//add to player team
-						Debug.Log("Switch to Player Team");
+						//Debug.Log("Switch to Player Team");
 						if (playerTeam.Contains(actor)) {return;}
 						enemyTeam.Remove(actor);
 						playerTeam.Add(actor);
 						actor.teamMemberComp.ChangeTeam(TeamMember.Team.Player);
 						break;
 					case TeamMember.Team.Enemy:		//add to enemy team
-						Debug.Log("Switch to Enemy Team");
+						//Debug.Log("Switch to Enemy Team");
 						if (enemyTeam.Contains(actor)) {return;}
 						playerTeam.Remove(actor);
 						enemyTeam.Add(actor);

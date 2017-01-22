@@ -16,13 +16,16 @@ public class Stats : MonoBehaviour {
 	public int minHealth;
 	public int brainWaveRadius;
 
+	public bool isAlive{get{return currentHealth > 0;}}
+	public bool isDead{get{return currentHealth <= 0;}}
+
 	void Start () {
 
 	}
 	void Update () {
 
 	}
-	
+
 
 	public void ApplyDamage(int amountOfDamage)
 	{

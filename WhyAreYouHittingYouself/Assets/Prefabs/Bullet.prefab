@@ -131,7 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   owningTeam: 0
   bulletLifetime: 1
-  damageAmount: 0
+  damageAmount: 1
 --- !u!114 &114267139732982412
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -40,6 +40,11 @@ public class ActorController : MonoBehaviour {
 
 	// Update is called once per frame
 	protected virtual void Update () {
-		
+		if (statsComp.isDead) {HandleDeath();}
+	}
+
+	protected virtual void HandleDeath()
+	{
+
 	}
 }
