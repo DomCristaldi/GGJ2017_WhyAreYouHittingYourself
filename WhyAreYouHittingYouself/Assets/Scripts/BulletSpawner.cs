@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class BulletSpawner : MonoBehaviour {
+
+	private AudioSource _audSrc;
 
 	public GameObject bulletPrefab;
 
@@ -13,6 +16,9 @@ public class BulletSpawner : MonoBehaviour {
 	private bool _onShootCooldown = false;
 	public bool onShootCooldown {get{return _onShootCooldown;}}
 
+	[Space]
+	[Header("Effects")]
+	public AudioClip shootSound;
 
 	[Space]
 	[Header("Gizmo Controls")]
@@ -26,6 +32,10 @@ public class BulletSpawner : MonoBehaviour {
 	}
 #endif
 
+	void Awake()
+	{
+		_audSrc = GetComponent<AudioSource>();
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -67,6 +77,9 @@ public class BulletSpawner : MonoBehaviour {
 		}
 */
 		StartCoroutine(ShootCooldownRoutine(fireRate));
+
+	//EFFECTS
+		_audSrc.PlayOneShot(shootSound);
 	}
 
 	private IEnumerator ShootCooldownRoutine(float cooldownTime)

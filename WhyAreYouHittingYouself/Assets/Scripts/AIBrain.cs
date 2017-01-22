@@ -18,7 +18,20 @@ public class AIBrain : MonoBehaviour {
 	[Space]
 	[Header("Follow Settings")]
 	public Transform targetTransform;
+	public Vector3 targetHeading
+	{
+		get{
+			if (targetTransform == null) {return Vector3.zero;}
+			//difference in postion, projected onto Up plane, and normalized
+			return Vector3.Normalize(
+				   Vector3.ProjectOnPlane((targetTransform.position - transform.position),
+										  Vector3.up));
+		}
+	}
 
+	public float rotateTowardsTargetSpeed = 1.0f;
+
+	[HideInInspector]
 	public bool onlyShootAtStoppingDistance = true;
 
 	[Space]
@@ -39,9 +52,13 @@ public class AIBrain : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () 
+	{
+		RotateTowardsTarget();
+
 		if (targetTransform != null)
 		{
+
 			_navAgentComp.destination = targetTransform.position;
 			_teamMemberComp = GetComponent<TeamMember>();
 		}
@@ -55,6 +72,20 @@ public class AIBrain : MonoBehaviour {
 		{
 			bulletSpawnerRef.FireBullet(transform.forward);
 		}
+	}
+
+	private void RotateTowardsTarget()
+	{
+		if (targetTransform == null) {return;}
+
+		//calculate the new facing direction using vectors
+		Vector3 newForward = Vector3.MoveTowards(transform.forward,
+												 targetHeading,
+												 rotateTowardsTargetSpeed * Time.deltaTime).normalized;
+												 
+		//create Quaternion representation for assignment
+		transform.rotation = Quaternion.LookRotation(newForward,
+													 Vector3.up);
 	}
 
 	public bool CheckCanAttack()
@@ -71,8 +102,6 @@ public class AIBrain : MonoBehaviour {
 									Vector3.ProjectOnPlane(targetTransform.position - transform.position,
 														   Vector3.up)
 												 );
-		Debug.DrawRay(transform.position, planarHeading * shootRange * 2.0f, Color.blue);
-		Debug.DrawRay(transform.position, transform.forward * shootRange * 2.0f, Color.green);
 
 		//checking with squares is faster
 		if (Vector3.SqrMagnitude(planarHeading) <= Mathf.Pow(shootRange, 2.0f)
